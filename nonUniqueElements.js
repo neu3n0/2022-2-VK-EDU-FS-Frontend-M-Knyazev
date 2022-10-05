@@ -25,6 +25,28 @@ nonUniqueElements([10, 9, 10, 10, 9, 8]) == [10, 9, 10, 10, 9]
  */
 
 export default function nonUniqueElements(data) {
-  // your solution goes here
-  return data
+  if (!Array.isArray(data)) return false;
+  let mp = new Map();
+  for (let i = 0; i < data.length; ++i) {
+    if (mp.has(data[i]))
+      mp.set(data[i], mp.get(data[i]) + 1);
+    else
+      mp.set(data[i], 1);
+  }
+
+  // it's better in time, but worse in memory due to the extra array
+  let ans = [];
+  for (let i = 0; i < data.length; ++i)
+    if (mp.get(data[i]) > 1) ans.push(data[i])
+  return ans;
+
+  // it's better in memory due to inline removal of elements, but worse in time due to copying part of the array when removing an element
+  // for (let j = 0; j < data.length; ++j) {
+  //   if (mp.get(data[j]) == 1) {
+  //     data.splice(j, 1);
+  //     --j;
+  //   }
+  // }
+  // return data;
+
 }
