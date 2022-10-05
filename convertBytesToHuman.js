@@ -21,5 +21,6 @@ export default function convertBytesToHuman(bytes) {
     bytes = bytes / 1024;
     ++i;
   }
+  if (i > 4) return "too long";
   return((bytes.toFixed(Math.floor(bytes) != bytes ? 2 : 0)) + ' ' + units[i]);
 }
