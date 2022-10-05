@@ -13,5 +13,13 @@
  */
 
 export default function convertBytesToHuman(bytes) {
-  // your solution goes here
+  const units = ['bytes', 'KB', 'MB', 'GB', 'TB'];
+  if (typeof bytes != "number") return false;
+  if (bytes < 0) return false;
+  let i = 0;
+  while(bytes >= 1024){
+    bytes = bytes / 1024;
+    ++i;
+  }
+  return((bytes.toFixed(Math.floor(bytes) != bytes ? 2 : 0)) + ' ' + units[i]);
 }
