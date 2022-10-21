@@ -178,19 +178,26 @@
             function sendMessage() {
                 if (input.value === '') return;
                 name = myName;
-                if (input.value[0] == '/') name = 'Kek';
+                text = input.value;
+                if (text == '/clear') {
+                    localStorage.clear();
+                    return;
+                }
+                if (text[0] == '/') {
+                    name = 'Kek';
+                    text = text.slice(1);
+                }
                 let nowTime = new Date();
 
                 let message = {
                     'name': name,
-                    'text': input.value,
+                    'text': text,
                     'time': String(nowTime.getHours()) + ":" + String(nowTime.getMinutes()),
                 }
 
                 saveMessageToLS(message);
                 showMessage(message);
 
-                if (message.text == '/clear') localStorage.clear();
             }
 
             function checkLocalStorage() {
