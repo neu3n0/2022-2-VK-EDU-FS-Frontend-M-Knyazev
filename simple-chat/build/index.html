@@ -78,7 +78,6 @@
             </div>
 
             <div class="content-chat">
-                <!-- <div class="message-container-wrap"> -->
                     <div class="message-container">
                         <!-- <div class="message">
                             <div class="message-wrap">
@@ -91,7 +90,6 @@
                             </div>
                         </div> -->
                     </div>
-                <!-- </div> -->
             </div>
   
             <div class="message-input">
@@ -134,6 +132,8 @@
             // localStorage.clear();
             checkLocalStorage();
             getMessageFromLS();
+            let objDiv = document.querySelector(".content-chat");
+            objDiv.scrollTop = objDiv.scrollHeight;
             form.addEventListener('submit', this.handleSubmit.bind(this));
             form.addEventListener('keypress', this.handleKeyPress.bind(this));
 
@@ -178,19 +178,29 @@
             function sendMessage() {
                 if (input.value === '') return;
                 name = myName;
-                if (input.value[0] == '/') name = 'Kek';
+                text = input.value;
+                if (text == '/clear') {
+                    localStorage.clear();
+                    input.value = '';
+                    location.reload();
+                    return;
+                }
+                if (text[0] == '/') {
+                    name = 'Kek';
+                    text = text.slice(1);
+                }
                 let nowTime = new Date();
 
                 let message = {
                     'name': name,
-                    'text': input.value,
-                    'time': String(nowTime.getHours()) + ":" + String(nowTime.getMinutes()),
+                    'text': text,
+                    'time': String(nowTime.getHours()) + ":" + (nowTime.getMinutes() < 10 ? ('0' + String(nowTime.getMinutes())) : String(nowTime.getMinutes())),
                 }
 
                 saveMessageToLS(message);
                 showMessage(message);
-
-                if (message.text == '/clear') localStorage.clear();
+                let objDiv = document.querySelector(".content-chat");
+                objDiv.scrollTop = objDiv.scrollHeight;
             }
 
             function checkLocalStorage() {
