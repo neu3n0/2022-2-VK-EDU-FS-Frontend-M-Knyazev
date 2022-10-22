@@ -58,10 +58,10 @@ module.exports = {
     },
     plugins: [
         new MiniCSSExtractPlugin({
-            filename: 'src/style.css',
+            filename: 'style.css',
         }),
         new HTMLWebpackPlugin({
-            filename: 'src/index.html',
+            filename: 'index.html',
             template: './index.html'
         })
     ]
