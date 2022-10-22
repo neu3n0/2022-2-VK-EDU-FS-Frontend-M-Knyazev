@@ -8,6 +8,7 @@ const webpack = require('webpack');
 
 const SRC_PATH = path.resolve(__dirname, 'src');
 const BUILD_PATH = path.resolve(__dirname, 'build');
+const IMG_PATH = path.resolve(__dirname, 'img');
 
 module.exports = {
     context: SRC_PATH,
@@ -52,6 +53,24 @@ module.exports = {
                     {
                         loader: 'css-loader',
                     },
+                ],
+            },
+            // {
+            //     test: /\.svg$/,
+            //     include: IMG_PATH,
+            //     loader: 'svg-inline-loader',
+            // },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                  IMG_PATH,
+                  {
+                    loader: 'image-webpack-loader',
+                    options: {
+                      bypassOnDebug: true, // webpack@1.x
+                      disable: true, // webpack@2.x and newer
+                    },
+                  },
                 ],
             },
         ],
