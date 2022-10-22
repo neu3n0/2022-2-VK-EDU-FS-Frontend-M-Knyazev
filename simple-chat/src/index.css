@@ -19,7 +19,7 @@ body {
 }
 
 .message-layout {
-    background-color: rgba(127, 255, 212, 0.493);
+    background-color: rgba(108, 173, 202, 0.699);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -190,3 +190,15 @@ body {
     background-color: rgb(150, 150, 150);
     color: white;
   }
+
+.chat-header-button {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
+
+.chat-footer-button {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
