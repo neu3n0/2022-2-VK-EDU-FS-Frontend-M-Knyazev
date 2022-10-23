@@ -134,6 +134,7 @@ body {
 }
 
 .message-text {
+    overflow-wrap: anywhere;
     /* word-break:break-all; */
     margin: 5px 10px;
 }
