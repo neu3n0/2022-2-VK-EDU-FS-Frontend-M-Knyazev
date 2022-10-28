@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var map = {\n\t\"./attach1.svg\": \"./img/attach1.svg\",\n\t\"./attach2.svg\": \"./img/attach2.svg\",\n\t\"./back.svg\": \"./img/back.svg\",\n\t\"./emoji.svg\": \"./img/emoji.svg\",\n\t\"./find.svg\": \"./img/find.svg\",\n\t\"./kek.jpeg\": \"./img/kek.jpeg\",\n\t\"./send.svg\": \"./img/send.svg\",\n\t\"./settings.svg\": \"./img/settings.svg\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./img sync \\\\.(png|jpe?g|svg)$\";\n\n//# sourceURL=webpack:///./img_sync_nonrecursive_\\.(png%7Cjpe?");
+eval("var map = {\n\t\"./attach1.svg\": \"./img/attach1.svg\",\n\t\"./attach2.svg\": \"./img/attach2.svg\",\n\t\"./back.svg\": \"./img/back.svg\",\n\t\"./burger.svg\": \"./img/burger.svg\",\n\t\"./emoji.svg\": \"./img/emoji.svg\",\n\t\"./find.svg\": \"./img/find.svg\",\n\t\"./kek.jpeg\": \"./img/kek.jpeg\",\n\t\"./send.svg\": \"./img/send.svg\",\n\t\"./settings.svg\": \"./img/settings.svg\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./img sync \\\\.(png|jpe?g|svg)$\";\n\n//# sourceURL=webpack:///./img_sync_nonrecursive_\\.(png%7Cjpe?");
 
 /***/ }),
 
@@ -130,6 +130,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"img/back.svg\");\n\n//# sourceURL=webpack:///./img/back.svg?");
+
+/***/ }),
+
+/***/ "./img/burger.svg":
+/*!************************!*\
+  !*** ./img/burger.svg ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"img/burger.svg\");\n\n//# sourceURL=webpack:///./img/burger.svg?");
 
 /***/ }),
 
