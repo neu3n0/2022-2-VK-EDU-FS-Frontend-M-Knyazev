@@ -12,7 +12,7 @@ const BUILD_PATH = path.resolve(__dirname, 'build');
 module.exports = {
     context: SRC_PATH,
     entry: {
-        index: './index.js',
+        index: './kekw/index.js',
     },
     output: {
         path: BUILD_PATH,
@@ -75,7 +75,7 @@ module.exports = {
         }),
         new HTMLWebpackPlugin({
             filename: 'index.html',
-            template: './index.html'
+            template: './kekw/index.html'
         })
     ]
 };
