@@ -12,7 +12,7 @@ const BUILD_PATH = path.resolve(__dirname, 'build');
 module.exports = {
     context: SRC_PATH,
     entry: {
-        index: './index.js',
+        index: './chat-messages/scripts/index.js',
     },
     output: {
         path: BUILD_PATH,
@@ -56,6 +56,7 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
+                include: SRC_PATH,
                 use: [
                     {
                         loader: 'file-loader',
@@ -74,7 +75,7 @@ module.exports = {
         }),
         new HTMLWebpackPlugin({
             filename: 'index.html',
-            template: './index.html'
+            template: './chat-messages/index.html'
         })
     ]
 };
