@@ -54,6 +54,19 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                include: SRC_PATH,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'img',
+                        },
+                    },
+                ],
+            },
         ],
     },
     plugins: [
