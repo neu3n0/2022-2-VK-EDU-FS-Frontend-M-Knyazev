@@ -12,7 +12,7 @@ const BUILD_PATH = path.resolve(__dirname, 'build');
 module.exports = {
     context: SRC_PATH,
     entry: {
-        index: './scripts/index.js',
+        index: './index.js',
         messagespage: './scripts/messages-page.js',
         chatslist: './scripts/chats-list.js',
     },
