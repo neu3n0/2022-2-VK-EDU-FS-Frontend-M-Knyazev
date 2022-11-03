@@ -12,11 +12,14 @@ const BUILD_PATH = path.resolve(__dirname, 'build');
 module.exports = {
     context: SRC_PATH,
     entry: {
-        index: './kekw/index.js',
+        index: './scripts/index.js',
+        messagespage: './scripts/messagespage.js',
     },
     output: {
         path: BUILD_PATH,
-        filename: 'bundle.js'
+        publicPath: '',
+        filename: 'scripts/[name].bundle.js',
+        chunkFilename: '[name].bundle.js'
     },
     module: {
         strictExportPresence: true,
@@ -43,7 +46,7 @@ module.exports = {
                 ],
             },
             {
-                test: /index\.css$/,
+                test: /\.css$/,
                 include: SRC_PATH,
                 use: [
                     {
@@ -71,11 +74,18 @@ module.exports = {
     },
     plugins: [
         new MiniCSSExtractPlugin({
-            filename: 'style.css',
+            filename: 'styles/[name].css',
+            chunks: ['messagespage']
         }),
         new HTMLWebpackPlugin({
             filename: 'index.html',
-            template: './kekw/index.html'
-        })
+            template: './index.html',
+            chunks: ['index']
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'messagespage.html',
+            template: './messagespage.html',
+            chunks: ['messagespage']
+        }),
     ]
 };
