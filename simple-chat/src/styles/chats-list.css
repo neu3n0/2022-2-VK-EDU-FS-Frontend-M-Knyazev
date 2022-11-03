@@ -1,0 +1,43 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background-color: #fff;
+    color: #333;
+    font-size: 15px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.form {
+    width: 100%;
+    display: inline-block;
+    border: 1px solid rgba(25, 25, 25, 0.32);
+}
+
+.message {
+    color: red;
+    /* border: 1px solid; */
+    border-radius: 4px;
+    margin: 4px 0;
+    padding: 4px;
+}
+
+input[type=submit] {
+    visibility: collapse;
+}
+
+input {
+    border: 0;
+    outline: none;
+    width: calc(100% - 2px);
+}

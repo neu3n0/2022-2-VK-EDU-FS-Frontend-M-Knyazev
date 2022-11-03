@@ -1,1 +1,1 @@
-window.location.href = './messagespage.html'
+window.location.href = './messages-page.html'

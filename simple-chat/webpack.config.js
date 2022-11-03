@@ -13,7 +13,8 @@ module.exports = {
     context: SRC_PATH,
     entry: {
         index: './scripts/index.js',
-        messagespage: './scripts/messagespage.js',
+        messagespage: './scripts/messages-page.js',
+        chatslist: './scripts/chats-list.js',
     },
     output: {
         path: BUILD_PATH,
@@ -73,19 +74,28 @@ module.exports = {
         ],
     },
     plugins: [
-        new MiniCSSExtractPlugin({
-            filename: 'styles/[name].css',
-            chunks: ['messagespage']
-        }),
         new HTMLWebpackPlugin({
             filename: 'index.html',
             template: './index.html',
             chunks: ['index']
         }),
-        new HTMLWebpackPlugin({
-            filename: 'messagespage.html',
-            template: './messagespage.html',
+        new MiniCSSExtractPlugin({
+            filename: 'styles/[name].css',
             chunks: ['messagespage']
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'messages-page.html',
+            template: './templates/messages-page.html',
+            chunks: ['messagespage']
+        }),
+        new MiniCSSExtractPlugin({
+            filename: 'styles/[name].css',
+            chunks: ['chatslist']
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'chats-list.html',
+            template: './templates/chats-list.html',
+            chunks: ['chatslist']
         }),
     ]
 };
