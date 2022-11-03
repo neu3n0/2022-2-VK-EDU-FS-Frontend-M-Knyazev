@@ -1,0 +1,25 @@
+.arrow_back {
+    background-color: #8e24aa;
+    color: white;
+    border: 0;
+    padding-right: 15px;
+    flex-basis: 60px;
+}
+
+.search {
+    background-color: #8e24aa;
+    color: white;
+    border: 0;
+    padding-right: 10px;
+    flex-basis: 60px;
+    margin-left: 90%;
+}
+
+.more_vert {
+    background-color: #8e24aa;
+    color: white;
+    border: 0;
+    padding-right: 15px;
+    flex-basis: 60px;
+    margin-right: 0;
+}
