@@ -1,43 +1,104 @@
-html {
-    box-sizing: border-box;
+.chat-layout {
+    background-color: rgba(218, 212, 212, 0.479);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 100vh;
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
+.chats-list {
+    flex-grow: 1;
+    background-color: rgba(175, 195, 199, 0.699);
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-body {
-    margin: 0;
-    background-color: #fff;
-    color: #333;
-    font-size: 15px;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    line-height: 20px;
-}
-
-.form {
+.header-left {
+    display: flex;
+    align-items: center;
+    justify-content: left;
     width: 100%;
-    display: inline-block;
-    border: 1px solid rgba(25, 25, 25, 0.32);
 }
 
-.message {
-    color: red;
-    /* border: 1px solid; */
-    border-radius: 4px;
-    margin: 4px 0;
-    padding: 4px;
+.header-right {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-grow: 1;
 }
 
-input[type=submit] {
-    visibility: collapse;
+.messenger-info {
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+    justify-content: left;
+    flex-grow: 1;
+    font-size: 20px;
+    font-weight: 800;
 }
 
-input {
-    border: 0;
-    outline: none;
-    width: calc(100% - 2px);
+.chats-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: start;
+    /* margin-top: 10px; */
+}
+
+.chat-with-person {
+    display: flex;
+    align-items: center;
+    height: 68px;
+    line-height: 24px;
+    padding: 10px 10px;
+    /* border-bottom: 1px solid black; */
+    justify-content: space-between;
+}
+
+.chat-with-person:hover {
+    background-color: rgba(153, 151, 151, 0.933);
+}
+
+.chat-information {
+    margin-left: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.last-message-meta {
+    display: flex;
+    justify-content: right;
+}
+
+.last-message-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+    max-height: 24px;
+}
+
+.done_all {
+    font-size: 17px;
+    color: rgb(35, 182, 35);
+}
+
+.last-message-time {
+    padding-left: 5px;
+    font-size: 12px;
+}
+
+.subtitle {
+    display: flex;
 }

@@ -1,1 +1,1 @@
-window.location.href = './messages-page.html'
+window.location.href = './chats-list.html'

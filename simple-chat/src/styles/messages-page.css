@@ -100,7 +100,7 @@ input {
     max-width: 70%;
     padding: 5px 5px;
     background-color:azure;
-    border-radius: 15px;
+    border-radius: 20px;
 }
 
 .message-text {
@@ -144,6 +144,7 @@ input {
 }
 
 .input-line {
+    border-right: 1px solid gray;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -152,6 +153,10 @@ input {
 
 .button-send {
     margin-left: 8px;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .button-settings {

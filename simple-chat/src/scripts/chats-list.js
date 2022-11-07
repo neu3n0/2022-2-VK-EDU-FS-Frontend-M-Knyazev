@@ -1,25 +1,19 @@
-import '../styles/messages-page.css';
+import '../styles/chats-list.css';
+import '../styles/general.css';
+import '../styles/chat-header.css';
+import '../styles/avatar.css';
+import '../styles/button.css';
 
-// function importAll(r) {
-//     return r.keys().map(r);
-//   }
+function importAll(r) {
+    return r.keys().map(r);
+  }
   
-// const images = importAll(require.context('./img/', false, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('../images/', false, /\.(png|jpe?g|svg)$/));
 
-const form = document.querySelector('form');
-const input = document.querySelector('.form-input');
-const message = document.querySelector('.message');
+let chat = document.querySelector(".chat-with-person");
+chat.addEventListener('click', goToMessagesPage.bind(this));
 
-form.addEventListener('submit', handleSubmit.bind(this));
-form.addEventListener('keypress', handleKeyPress.bind(this));
-
-function handleSubmit (event) {
-    event.preventDefault();
-    message.innerText = input.value;
-}
-
-function handleKeyPress (event) {
-    if (event.keyCode === 13) {
-        form.dispatchEvent(new Event('submit'));
-    }
+function goToMessagesPage() {
+    // chat.preventDefault();
+    window.location.href = './messages-page.html'
 }

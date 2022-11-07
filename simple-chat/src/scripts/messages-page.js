@@ -10,9 +10,17 @@ function importAll(r) {
   
 const images = importAll(require.context('../images/', false, /\.(png|jpe?g|svg)$/));
 
+const back = document.querySelector(".button-back");
+back.addEventListener('click', goToChatPage.bind(this));
+
+function goToChatPage() {
+    window.location.href = './chats-list.html'
+}
+
 const form = document.querySelector('.form-message');
 const input = document.querySelector('.form-input');
 let message_container = document.querySelector('.message-container');
+const sendButton = document.querySelector(".button-send");
 const myName = 'Scary Kitty';
 // localStorage.clear();
 checkLocalStorage();
@@ -21,6 +29,8 @@ let objDiv = document.querySelector(".content-chat");
 objDiv.scrollTop = objDiv.scrollHeight;
 form.addEventListener('submit', handleSubmit.bind());
 form.addEventListener('keypress', handleKeyPress.bind());
+form.addEventListener('click', handleSendButton.bind());
+sendButton.addEventListener('click', handleSendButton.bind(this));
 
 function handleSubmit (event) {
     event.preventDefault();
@@ -32,6 +42,10 @@ function handleKeyPress (event) {
         event.preventDefault();
         form.dispatchEvent(new Event('submit'));
     }
+}
+
+function handleSendButton (event) {
+    form.dispatchEvent(new Event('submit'));
 }
 
 function showMessage(message) {
