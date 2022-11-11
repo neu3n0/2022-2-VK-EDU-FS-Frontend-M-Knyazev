@@ -1,3 +1,4 @@
 node_modules
 simple-chat/node_modules
 *.log
+simple-chat/build

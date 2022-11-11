@@ -1,0 +1,7 @@
+.header-chat {
+    height: 60px;
+    background-color: #eeee;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+}
