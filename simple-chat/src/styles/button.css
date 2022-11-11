@@ -6,14 +6,18 @@
     width: 40px;
     height: 40px;
     border-radius: 100%;
-    color: rgb(29, 26, 26);
+    color: rgb(95, 95, 95);
     text-align: center;
+    transition: background-color 0.2s;
     /* cursor: pointer; */
 }
 
-.button:hover {
-    /* background-color: rgb(150, 150, 150); */
-    color: blue;
+.button-settings {
+    margin-left: 5px;
+}
+
+.button-back {
+    margin-right: 10px;
 }
 
 .button-edit {
@@ -22,10 +26,88 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    box-shadow: 0 0 0 rgb(73, 126, 224, 0.4);;
+    animation: pulse 2s infinite;
 }
 
 .fixed_button {
     position: absolute;
     bottom: 20px;
     right: 20px;
+    z-index: 999;
 }
+
+.button-back:hover,
+.button-find:hover,
+.button-settings:hover,
+.button-menu:hover {
+    background-color: rgba(189, 189, 189, 0.933);
+}
+
+.button-back:active,
+.button-find:active,
+.button-settings:active,
+.button-menu:active {
+    background-color: rgba(177, 175, 175, 0.933);
+}
+
+.button-send {
+    margin-left: 8px;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.button-send:hover {
+    background-color: rgb(156, 156, 156);
+    color: white;
+}
+
+.button-emoji:hover,
+.button-attach:hover {
+    background-color: rgba(212, 212, 212, 0.933);
+}
+
+.button-emoji:active,
+.button-attach:active,
+.button-send:active {
+    color: rgb(73, 126, 224);
+}
+
+.button-edit:hover {
+    animation: none;
+    background-color: rgba(189, 189, 189, 0.933);
+}
+
+.button-edit:active {
+    animation: none;
+    background-color: rgba(177, 175, 175, 0.933);
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgb(73, 126, 224, 0.4);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 10px rgb(73, 126, 224, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgb(73, 126, 224, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgb(73, 126, 224, 0.4);
+      box-shadow: 0 0 0 0 rgb(73, 126, 224, 0.4);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 10px rgb(73, 126, 224, 0);
+        box-shadow: 0 0 0 10px rgb(73, 126, 224, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgb(73, 126, 224, 0);
+        box-shadow: 0 0 0 0 rgb(73, 126, 224, 0);
+    }
+  }

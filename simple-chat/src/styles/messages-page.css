@@ -93,6 +93,19 @@ input {
 .message {
     display: flex;
     justify-content: end;
+    animation: animation-message 0.4s;
+}
+
+@keyframes animation-message{
+    from {
+        transform: scale(0);
+        transform-origin: bottom center;
+    }
+
+    to {
+        transform: scale(1);
+        transform-origin: bottom center;
+    }
 }
 
 .message-wrap {
@@ -144,25 +157,9 @@ input {
 }
 
 .input-line {
-    border-right: 1px solid gray;
+    /* border-right: 1px solid gray; */
     display: flex;
     justify-content: left;
     align-items: center;
     flex-grow: 1;
-}
-
-.button-send {
-    margin-left: 8px;
-    background-color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.button-settings {
-    margin-left: 5px;
-}
-
-.button-back {
-    margin-right: 10px;
 }

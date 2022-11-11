@@ -53,6 +53,7 @@
     padding: 10px 10px;
     /* border-bottom: 1px solid black; */
     justify-content: space-between;
+    transition: background-color 0.3s;
 }
 
 .chat-with-person:hover {
