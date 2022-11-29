@@ -1,0 +1,23 @@
+.input-line {
+    /* border-right: 1px solid gray; */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.form-message {
+    width: 100%;
+    display: inline-block;
+    margin: 5px 10px;
+}
+
+input[type=submit] {
+    visibility: collapse;
+}
+
+input {
+    border: 0;
+    outline: none;
+    width: calc(100% - 2px);
+}
