@@ -3,12 +3,17 @@ import './ChatHeader.scss'
 import '../button.scss'
 import Avatar from '../../components/Avatar/Avatar';
 
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import SearchIcon from '@mui/icons-material/Search';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+
+
 export default function ChatHeader(props) {
     return (
         <div className="header-chat">
             <div className="header-left">
                 <button className="button button-back" onClick={props.onClick}>
-                    <span className="material-icons">arrow_back</span>
+                    <ArrowBackIcon/>
                 </button>
 
                 <div className="chat-info">
@@ -19,10 +24,10 @@ export default function ChatHeader(props) {
 
             <div className="header-right">
                 <button className="button  button-find">
-                    <span className="material-icons">search</span>
+                    <SearchIcon/>
                 </button>
                 <button className="button button-settings">
-                    <span className="material-icons">more_vert</span>
+                    <MoreVertIcon/>
                 </button>
             </div>
         </div>

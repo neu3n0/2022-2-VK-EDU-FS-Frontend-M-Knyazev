@@ -3,6 +3,10 @@ import './ChatFooter.scss'
 import '../button.scss'
 import FormMessage from '../../components/FormMessage/FormMessage';
 
+import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import SendIcon from '@mui/icons-material/Send';
+
 export default function ChatFooter(props) {
     const [val, setVal] = useState('');
 
@@ -16,19 +20,19 @@ export default function ChatFooter(props) {
         <div className="footer-chat">
             <div className="footer-left">
                 <button className="button button-emoji">
-                    <span className="material-icons">sentiment_satisfied</span>
+                    <SentimentSatisfiedIcon/>
                 </button>
 
                 <FormMessage chat_id={props.chat_id} handleSubmit={handleSubmit} val = {val} setVal = {setVal} />
 
                 <button className="button button-attach">
-                    <span className="material-icons">attach_file</span>
+                    <AttachFileIcon/>
                 </button>
             </div>
 
             <div className="footer-right">
                 <button className="button button-send" onClick={handleSubmit}>
-                    <span className="material-icons">send</span>
+                    <SendIcon/>
                 </button>
             </div>
         </div>

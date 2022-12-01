@@ -2,6 +2,8 @@ import React from 'react'
 import './Dialogue.scss'
 import Avatar from '../../components/Avatar/Avatar';
 
+import DoneAllIcon from '@mui/icons-material/DoneAll';
+
 export default function Dialogue(props) {
     let messages_list = localStorage.getItem('messages');
     let messages = JSON.parse(messages_list);
@@ -17,7 +19,7 @@ export default function Dialogue(props) {
                     </div>
                     <div className="last-message-meta">
                         <div className="last-message-status">
-                            <span className="material-icons done_all">done_all</span>
+                            <DoneAllIcon className="done_all" style={{fontSize: '17px',  color: 'rgb(35, 182, 35)'}}/>
                         </div>
                         <div className="last-message-time">
                             {props.chat['last_message']['pub_date']}
