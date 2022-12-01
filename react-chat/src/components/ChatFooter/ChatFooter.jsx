@@ -1,9 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './ChatFooter.scss'
 import '../button.scss'
 import FormMessage from '../../components/FormMessage/FormMessage';
 
 export default function ChatFooter(props) {
+    const [val, setVal] = useState('');
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        props.sendMess(val);
+        setVal('');
+    }
 
     return (
         <div className="footer-chat">
@@ -12,7 +19,7 @@ export default function ChatFooter(props) {
                     <span className="material-icons">sentiment_satisfied</span>
                 </button>
 
-                <FormMessage chat_id={props.chat_id} sendMess={props.sendMess} />
+                <FormMessage chat_id={props.chat_id} handleSubmit={handleSubmit} val = {val} setVal = {setVal} />
 
                 <button className="button button-attach">
                     <span className="material-icons">attach_file</span>
@@ -20,7 +27,7 @@ export default function ChatFooter(props) {
             </div>
 
             <div className="footer-right">
-                <button className="button button-send">
+                <button className="button button-send" onClick={handleSubmit}>
                     <span className="material-icons">send</span>
                 </button>
             </div>
