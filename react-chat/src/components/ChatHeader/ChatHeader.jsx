@@ -13,7 +13,7 @@ export default function ChatHeader(props) {
 
                 <div className="chat-info">
                     <Avatar />
-                    <ChatHeaderUserInfo />
+                    <ChatHeaderUserInfo chat_id = {props.chat_id}/>
                 </div>
             </div>
 
@@ -31,11 +31,13 @@ export default function ChatHeader(props) {
 
 
 function ChatHeaderUserInfo(props) {
+    let chats = localStorage.getItem('chats');
+    chats = JSON.parse(chats);
     return (
         <div className="info">
             <div className="chat-name">
                 <span className="kekw">
-                    Scary Kitty
+                    {chats[props.chat_id]['chat']['title']}
                 </span>
             </div>
             <div className="chat-status">

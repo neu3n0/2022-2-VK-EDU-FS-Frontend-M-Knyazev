@@ -4,6 +4,7 @@ import '../button.scss'
 import FormMessage from '../../components/FormMessage/FormMessage';
 
 export default function ChatFooter(props) {
+
     return (
         <div className="footer-chat">
             <div className="footer-left">
@@ -11,7 +12,7 @@ export default function ChatFooter(props) {
                     <span className="material-icons">sentiment_satisfied</span>
                 </button>
 
-                <FormMessage/>
+                <FormMessage chat_id = {props.chat_id}/>
 
                 <button className="button button-attach">
                     <span className="material-icons">attach_file</span>

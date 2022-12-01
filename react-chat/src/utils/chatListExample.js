@@ -1,7 +1,7 @@
 export let chatsExample = [
     {
         "chat": {
-            "id": 97,
+            "id": 0,
             "title": "chatOne",
             "category": "G"
         },
@@ -9,57 +9,69 @@ export let chatsExample = [
         "last_message": {
             "id": 14,
             "author_username": "ivan",
-            "text": "312312",
-            "pub_date": "2022-11-29T09:10:24.992266Z",
+            "text": "hey",
+            "pub_date": "10:24",
             "is_readed": false
         }
     },
     {
         "chat": {
-            "id": 122,
-            "title": "kekw",
+            "id": 1,
+            "title": "kek",
             "category": "G"
         },
         "muted": true,
-        "last_message": null
+        "last_message": {
+            "id": 14,
+            "author_username": "ivan",
+            "text": "wtf",
+            "pub_date": "10:24",
+            "is_readed": false
+        }
     },
     {
         "chat": {
-            "id": 124,
-            "title": "gchat",
+            "id": 2,
+            "title": "lol",
             "category": "G"
         },
         "muted": false,
-        "last_message": null
+        "last_message": {
+            "id": 14,
+            "author_username": "ivan",
+            "text": "hmmmmm",
+            "pub_date": "10:24",
+            "is_readed": false
+        }
     },
     {
         "chat": {
-            "id": 128,
-            "title": "3Chat",
+            "id": 3,
+            "title": "rofl",
             "category": "G"
         },
         "muted": false,
         "last_message": {
             "id": 15,
             "author_username": "ivan",
-            "text": "dfsafasd",
-            "pub_date": "2022-11-29T09:16:27.936331Z",
+            "text": "????",
+            "pub_date": "10:24",
             "is_readed": false
         }
     },
     {
         "chat": {
-            "id": 129,
-            "title": "3ChatNew",
+            "id": 4,
+            "title": "chatTwo",
             "category": "G"
         },
         "muted": false,
         "last_message": {
             "id": 22,
             "author_username": "godmakc3",
-            "text": "fasfsa",
-            "pub_date": "2022-11-29T09:33:05.579135Z",
+            "text": "))))))",
+            "pub_date": "10:24",
             "is_readed": false
         }
-    }
+    },
 ]
