@@ -4,17 +4,9 @@ import ChatContent from '../../components/ChatContent/ChatContent';
 import ChatFooter from '../../components/ChatFooter/ChatFooter';
 import './PageChat.scss'
 
-import { messagesExample } from "../../utils/messagesListExample";
-
 export default function PageChat(props) {
 
     let [mess, setMess] = useState([]);
-
-    if (!localStorage.getItem("messages")) {
-        localStorage.setItem("messages", JSON.stringify(messagesExample));
-        setMess(mess=messagesExample);
-    }
-
 
     function sendMess(message) {
         if (message === '') return;
@@ -39,7 +31,7 @@ export default function PageChat(props) {
         };
         messages[props.chat_id].push(message_);
         localStorage.setItem("messages", JSON.stringify(messages));
-        setMess(mess=messages);
+        setMess(messages);
     }
 
     return (

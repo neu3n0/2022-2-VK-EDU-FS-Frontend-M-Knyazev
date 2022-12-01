@@ -1,6 +1,6 @@
 import React from 'react'
 import './Message.scss'
-
+// import DoneAllIcon from '@mui/icons-material/DoneAll';
 
 export default function Message(props) {
     let st = 'flex-end'; 

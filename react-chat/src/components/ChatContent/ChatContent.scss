@@ -1,4 +1,7 @@
 .content-chat {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
     overflow-y: scroll;
     overflow-x: hidden;
     width: 100%;
@@ -7,8 +10,8 @@
 
 .message-container {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
     min-height: 100%;
     margin: 0 auto;
     width: 90%;

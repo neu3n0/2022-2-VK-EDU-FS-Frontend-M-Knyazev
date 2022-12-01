@@ -2,7 +2,8 @@ import './App.css';
 import React, { Component } from 'react';
 import PageChatList from './pages/PageChatList/PageChatList';
 import PageChat from './pages/PageChat/PageChat';
-
+import { chatsExample } from "./utils/chatListExample";
+import { messagesExample } from "./utils/messagesListExample";
 
 export default class App extends Component {
 
@@ -12,6 +13,14 @@ export default class App extends Component {
 		
 		this.state = {
 			chat_id: null,
+		};
+
+		if (!localStorage.getItem("chats")) {
+			localStorage.setItem("chats", JSON.stringify(chatsExample))
+		}
+	
+		if (!localStorage.getItem("messages")) {
+			localStorage.setItem("messages", JSON.stringify(messagesExample));
 		};
 	}
 
