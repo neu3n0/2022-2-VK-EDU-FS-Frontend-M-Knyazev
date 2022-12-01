@@ -3,8 +3,15 @@ import './Message.scss'
 
 
 export default function Message(props) {
+    let st = 'flex-end'; 
+    if (props.message["author_username"] !== "me") {
+        st = 'flex-start';
+    } 
+
     return (
-        <div className="message">
+        <div className="message" style={{
+            'justifyContent': st
+        }}>
             <div className="message-wrap">
                 <span className="message-text">
                     {props.message['text']}

@@ -8,20 +8,27 @@ import { messagesExample } from "../../utils/messagesListExample";
 
 export default function PageChat(props) {
 
-    if (!localStorage.getItem("messages")) {
-        localStorage.setItem("messages", JSON.stringify(messagesExample));
-        // setMess(mess=messagesExample);
-    }
-
     let [mess, setMess] = useState([]);
 
+    if (!localStorage.getItem("messages")) {
+        localStorage.setItem("messages", JSON.stringify(messagesExample));
+        setMess(mess=messagesExample);
+    }
+
+
     function sendMess(message) {
+        if (message === '') return;
         let messages_container = localStorage.getItem('messages');
         let messages = JSON.parse(messages_container);
         let new_id = messages[props.chat_id][messages[props.chat_id].length - 1]['id'] + 1;
+        let user = "me";
+        if (message[0] === '/') {
+            user = "kek";
+            message = message.slice(1);   
+        }
         let message_ = {
             "id": new_id,
-            "author_username": "ivan",
+            "author_username": user,
             "author_id": 2,
             "chat_title": "chatOne",
             "text": message,
@@ -35,11 +42,10 @@ export default function PageChat(props) {
         setMess(mess=messages);
     }
 
-
     return (
         <div className="message-layout">
             {ChatHeader(props)}
-            <ChatContent chat_id={props.chat_id} messages={mess}/>
+            <ChatContent chat_id={props.chat_id}/>
             <ChatFooter chat_id={props.chat_id} sendMess={sendMess}/>
         </div>
     )
