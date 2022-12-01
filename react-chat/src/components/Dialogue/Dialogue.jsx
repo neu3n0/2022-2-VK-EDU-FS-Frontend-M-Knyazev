@@ -3,7 +3,8 @@ import './Dialogue.scss'
 import Avatar from '../../components/Avatar/Avatar';
 
 export default function Dialogue(props) {
-
+    let messages_list = localStorage.getItem('messages');
+    let messages = JSON.parse(messages_list);
     return (
         // <div className="chat-with-person" onClick={() => props.onClick('chat', props.chat_id)}>
         // <div className="chat-with-person" onClick={props.onClick}>
@@ -24,7 +25,7 @@ export default function Dialogue(props) {
                     </div>
                 </div>
                 <div className="subtitle">
-                    {props.chat['last_message']['text']}
+                    {messages[props.chat_id][messages[props.chat_id].length - 1]['text']}
                 </div>
             </div>
         </div>
