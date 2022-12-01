@@ -13,7 +13,6 @@ export default class App extends Component {
 		this.state = {
 			chat_id: null,
 		};
-
 	}
 
 	render() {
