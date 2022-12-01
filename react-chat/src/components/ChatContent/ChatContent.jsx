@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './ChatContent.scss'
 import Message from '../../components/Message/Message';
 

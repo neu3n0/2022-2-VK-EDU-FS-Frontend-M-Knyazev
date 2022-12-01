@@ -12,7 +12,7 @@ export default function ChatFooter(props) {
                     <span className="material-icons">sentiment_satisfied</span>
                 </button>
 
-                <FormMessage chat_id = {props.chat_id}/>
+                <FormMessage chat_id={props.chat_id} sendMess={props.sendMess} />
 
                 <button className="button button-attach">
                     <span className="material-icons">attach_file</span>

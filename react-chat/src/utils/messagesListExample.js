@@ -1,7 +1,7 @@
 export let messagesExample = [
     [
         {
-            "id": 14,
+            "id": 1,
             "author_username": "ivan",
             "author_id": 2,
             "chat_title": "chatOne",
@@ -12,7 +12,7 @@ export let messagesExample = [
             "edited": false
         },
         {
-            "id": 12,
+            "id": 2,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",
@@ -23,7 +23,7 @@ export let messagesExample = [
             "edited": false
         },
         {
-            "id": 11,
+            "id": 3,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",
@@ -36,7 +36,7 @@ export let messagesExample = [
     ],
     [
         {
-            "id": 122,
+            "id": 1,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",
@@ -47,7 +47,7 @@ export let messagesExample = [
             "edited": false
         },
         {
-            "id": 113,
+            "id": 2,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",
@@ -58,7 +58,7 @@ export let messagesExample = [
             "edited": false
         },
         {
-            "id": 144,
+            "id": 3,
             "author_username": "ivan",
             "author_id": 2,
             "chat_title": "chatOne",
@@ -71,7 +71,7 @@ export let messagesExample = [
     ],
     [
         {
-            "id": 122,
+            "id": 1,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",
@@ -82,7 +82,7 @@ export let messagesExample = [
             "edited": false
         },
         {
-            "id": 113,
+            "id": 2,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",
@@ -95,7 +95,7 @@ export let messagesExample = [
     ],
     [
         {
-            "id": 122,
+            "id": 3,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",
@@ -106,7 +106,7 @@ export let messagesExample = [
             "edited": false
         },
         {
-            "id": 113,
+            "id": 1,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",
@@ -117,7 +117,7 @@ export let messagesExample = [
             "edited": false
         },
         {
-            "id": 144,
+            "id": 2,
             "author_username": "ivan",
             "author_id": 2,
             "chat_title": "chatOne",
@@ -130,7 +130,7 @@ export let messagesExample = [
     ],
     [
         {
-            "id": 144,
+            "id": 1,
             "author_username": "ivan",
             "author_id": 2,
             "chat_title": "chatOne",
@@ -141,7 +141,7 @@ export let messagesExample = [
             "edited": false
         },
         {
-            "id": 122,
+            "id": 2,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",
@@ -154,3 +154,184 @@ export let messagesExample = [
     ],
     
 ]
+
+
+// export let messagesExample2 = [
+//     {
+//         "chat0": [
+//             {
+//                 "id": 14,
+//                 "author_username": "ivan",
+//                 "author_id": 2,
+//                 "chat_title": "chatOne",
+//                 "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+//                 "pub_date": "11:12",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             },
+//             {
+//                 "id": 12,
+//                 "author_username": "neu3n0",
+//                 "author_id": 1,
+//                 "chat_title": "chatOne",
+//                 "text": "hello2",
+//                 "pub_date": "23:24",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             },
+//             {
+//                 "id": 11,
+//                 "author_username": "neu3n0",
+//                 "author_id": 1,
+//                 "chat_title": "chatOne",
+//                 "text": "hello1!",
+//                 "pub_date": "03:12",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             }
+//         ],
+//         "chat1": [
+//             {
+//                 "id": 14,
+//                 "author_username": "ivan",
+//                 "author_id": 2,
+//                 "chat_title": "chatOne",
+//                 "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+//                 "pub_date": "11:12",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             },
+//             {
+//                 "id": 12,
+//                 "author_username": "neu3n0",
+//                 "author_id": 1,
+//                 "chat_title": "chatOne",
+//                 "text": "hello2",
+//                 "pub_date": "23:24",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             },
+//             {
+//                 "id": 11,
+//                 "author_username": "neu3n0",
+//                 "author_id": 1,
+//                 "chat_title": "chatOne",
+//                 "text": "hello1!",
+//                 "pub_date": "03:12",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             }
+//         ],
+//         "chat2": [
+//             {
+//                 "id": 14,
+//                 "author_username": "ivan",
+//                 "author_id": 2,
+//                 "chat_title": "chatOne",
+//                 "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+//                 "pub_date": "11:12",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             },
+//             {
+//                 "id": 12,
+//                 "author_username": "neu3n0",
+//                 "author_id": 1,
+//                 "chat_title": "chatOne",
+//                 "text": "hello2",
+//                 "pub_date": "23:24",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             },
+//             {
+//                 "id": 11,
+//                 "author_username": "neu3n0",
+//                 "author_id": 1,
+//                 "chat_title": "chatOne",
+//                 "text": "hello1!",
+//                 "pub_date": "03:12",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             }
+//         ],
+//         "chat3": [
+//             {
+//                 "id": 14,
+//                 "author_username": "ivan",
+//                 "author_id": 2,
+//                 "chat_title": "chatOne",
+//                 "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+//                 "pub_date": "11:12",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             },
+//             {
+//                 "id": 12,
+//                 "author_username": "neu3n0",
+//                 "author_id": 1,
+//                 "chat_title": "chatOne",
+//                 "text": "hello2",
+//                 "pub_date": "23:24",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             },
+//             {
+//                 "id": 11,
+//                 "author_username": "neu3n0",
+//                 "author_id": 1,
+//                 "chat_title": "chatOne",
+//                 "text": "hello1!",
+//                 "pub_date": "03:12",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             }
+//         ],
+//         "chat4": [
+//             {
+//                 "id": 14,
+//                 "author_username": "ivan",
+//                 "author_id": 2,
+//                 "chat_title": "chatOne",
+//                 "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+//                 "pub_date": "11:12",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             },
+//             {
+//                 "id": 12,
+//                 "author_username": "neu3n0",
+//                 "author_id": 1,
+//                 "chat_title": "chatOne",
+//                 "text": "hello2",
+//                 "pub_date": "23:24",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             },
+//             {
+//                 "id": 11,
+//                 "author_username": "neu3n0",
+//                 "author_id": 1,
+//                 "chat_title": "chatOne",
+//                 "text": "hello1!",
+//                 "pub_date": "03:12",
+//                 "is_readed": false,
+//                 "count_readers": 0,
+//                 "edited": false
+//             }
+//         ],
+//     }
+// ]
