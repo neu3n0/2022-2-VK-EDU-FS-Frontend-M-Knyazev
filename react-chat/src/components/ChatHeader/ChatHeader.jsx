@@ -36,7 +36,7 @@ export default function ChatHeader(props) {
 
 
 function ChatHeaderUserInfo(props) {
-    let chats = localStorage.getItem('chats');
+    const chats = localStorage.getItem('chats');
     chats = JSON.parse(chats);
     return (
         <div className="info">

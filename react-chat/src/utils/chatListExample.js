@@ -1,4 +1,4 @@
-export let chatsExample = [
+export const chatsExample = [
     {
         "chat": {
             "id": 0,

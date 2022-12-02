@@ -1,4 +1,4 @@
-export let messagesExample = [
+export const messagesExample = [
     [
         {
             "id": 1,
@@ -156,7 +156,7 @@ export let messagesExample = [
 ]
 
 
-// export let messagesExample2 = [
+// export const messagesExample2 = [
 //     {
 //         "chat0": [
 //             {

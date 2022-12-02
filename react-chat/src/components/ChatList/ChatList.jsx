@@ -4,7 +4,7 @@ import './ChatList.scss'
 
 export default function ChatList(props) {
 
-    let chats = JSON.parse(localStorage.getItem("chats"))
+    const chats = JSON.parse(localStorage.getItem("chats"))
 
     const listChats = chats.map((chat) =>
         <Dialogue key={chat['chat']['id']} onClick={() => props.onClick(chat['chat']['id'])} chat={chat} chat_id={chat['chat']['id']}/>

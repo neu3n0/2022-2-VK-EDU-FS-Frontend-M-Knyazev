@@ -5,8 +5,8 @@ import Message from '../../components/Message/Message';
 
 export default function ChatContent(props) {
 
-    let messages_list = JSON.parse(localStorage.getItem("messages"))
-    let messages = messages_list[props.chat_id]
+    const messages_list = JSON.parse(localStorage.getItem("messages"))
+    const messages = messages_list[props.chat_id]
 
     const messagesList = messages.reverse().map((message) =>
         <Message key={message['id']} onClick={props.onClick} message={message} />

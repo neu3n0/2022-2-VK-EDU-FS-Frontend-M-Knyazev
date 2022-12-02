@@ -5,8 +5,8 @@ import Avatar from '../../components/Avatar/Avatar';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 
 export default function Dialogue(props) {
-    let messages_list = localStorage.getItem('messages');
-    let messages = JSON.parse(messages_list);
+    const messages_list = localStorage.getItem('messages');
+    const messages = JSON.parse(messages_list);
     return (
         // <div className="chat-with-person" onClick={() => props.onClick('chat', props.chat_id)}>
         // <div className="chat-with-person" onClick={props.onClick}>

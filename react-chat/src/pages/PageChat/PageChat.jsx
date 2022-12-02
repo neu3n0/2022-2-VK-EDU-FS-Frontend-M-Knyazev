@@ -6,19 +6,19 @@ import './PageChat.scss'
 
 export default function PageChat(props) {
 
-    let [mess, setMess] = useState([]);
+    const [mess, setMess] = useState([]);
 
     function sendMess(message) {
         if (message === '') return;
-        let messages_container = localStorage.getItem('messages');
+        const messages_container = localStorage.getItem('messages');
         let messages = JSON.parse(messages_container);
-        let new_id = messages[props.chat_id][messages[props.chat_id].length - 1]['id'] + 1;
+        const new_id = messages[props.chat_id][messages[props.chat_id].length - 1]['id'] + 1;
         let user = "me";
         if (message[0] === '/') {
             user = "kek";
             message = message.slice(1);   
         }
-        let message_ = {
+        const message_ = {
             "id": new_id,
             "author_username": user,
             "author_id": 2,
