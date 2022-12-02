@@ -1,0 +1,23 @@
+.footer-chat {
+    width: 90%;
+    margin: 0 auto;
+    min-height: 60px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: left;
+}
+
+.footer-left {
+    display: flex;
+    justify-content: left;
+    flex-grow: 1;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+.footer-right {
+    display: flex;
+    justify-content: right;
+}
