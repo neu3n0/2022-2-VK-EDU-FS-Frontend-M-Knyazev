@@ -37,7 +37,7 @@ export default function PageChat(props) {
     return (
         <div className="message-layout">
             {ChatHeader(props)}
-            <ChatContent chat_id={props.chat_id}/>
+            <ChatContent chat_id={props.chat_id} messages={mess}/>
             <ChatFooter chat_id={props.chat_id} sendMess={sendMess}/>
         </div>
     )
