@@ -9,7 +9,7 @@ export default function ChatContent(props) {
     const messages = messages_list[props.chat_id]
 
     const messagesList = messages.reverse().map((message) =>
-        <Message key={message['id']} onClick={props.onClick} message={message} />
+        <Message key={message['id']} message={message} />
     );
 
     return (

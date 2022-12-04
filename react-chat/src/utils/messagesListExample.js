@@ -84,7 +84,7 @@ export const messagesExample = [
     ],
     [
         {
-            "id": 3,
+            "id": 1,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",
@@ -95,7 +95,7 @@ export const messagesExample = [
             "edited": false
         },
         {
-            "id": 1,
+            "id": 2,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",
@@ -106,7 +106,7 @@ export const messagesExample = [
             "edited": false
         },
         {
-            "id": 2,
+            "id": 3,
             "author_username": "ivan",
             "author_id": 2,
             "chat_title": "chatOne",
@@ -117,7 +117,7 @@ export const messagesExample = [
             "edited": false
         },
         {
-            "id": 3,
+            "id": 4,
             "author_username": "neu3n0",
             "author_id": 1,
             "chat_title": "chatOne",

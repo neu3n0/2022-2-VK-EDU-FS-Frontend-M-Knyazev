@@ -3,8 +3,12 @@ import ChatHeader from '../../components/ChatHeader/ChatHeader';
 import ChatContent from '../../components/ChatContent/ChatContent';
 import ChatFooter from '../../components/ChatFooter/ChatFooter';
 import './PageChat.scss'
+import { useParams } from "react-router";
 
 export default function PageChat(props) {
+
+
+    const params = useParams();
 
     const [mess, setMess] = useState([]);
 
@@ -12,7 +16,7 @@ export default function PageChat(props) {
         if (message === '') return;
         const messages_container = localStorage.getItem('messages');
         let messages = JSON.parse(messages_container);
-        const new_id = messages[props.chat_id][messages[props.chat_id].length - 1]['id'] + 1;
+        const new_id = messages[params['id']][messages[params['id']].length - 1]['id'] + 1;
         let user = "me";
         if (message[0] === '/') {
             user = "kek";
@@ -29,16 +33,16 @@ export default function PageChat(props) {
             "count_readers": 0,
             "edited": false
         };
-        messages[props.chat_id].push(message_);
+        messages[params['id']].push(message_);
         localStorage.setItem("messages", JSON.stringify(messages));
         setMess(messages);
     }
 
     return (
         <div className="message-layout">
-            {ChatHeader(props)}
-            <ChatContent chat_id={props.chat_id} messages={mess}/>
-            <ChatFooter chat_id={props.chat_id} sendMess={sendMess}/>
+            <ChatHeader chat_id={params['id']} />
+            <ChatContent chat_id={params['id']} messages={mess}/>
+            <ChatFooter chat_id={params['id']} sendMess={sendMess}/>
         </div>
     )
 }

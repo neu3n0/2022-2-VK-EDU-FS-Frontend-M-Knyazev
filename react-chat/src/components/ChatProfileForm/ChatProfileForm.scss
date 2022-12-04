@@ -7,14 +7,22 @@
     flex-grow: 1;
 }
 
-.fullname-form {
-    margin-top: 40px;
+.profile-form {
+    margin-top: 50px;
+    width: 84%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
 }
 
-.username-form {
-    margin-top: 40px;
+.profile-avatar {
+    height: 140px;
+    width: 140px;
+    border-radius: 100%;
 }
 
-.description-form {
-    margin-top: 40px;
+.heh {
+    height: 1.8rem;
+    background-color:  transparent;
 }
