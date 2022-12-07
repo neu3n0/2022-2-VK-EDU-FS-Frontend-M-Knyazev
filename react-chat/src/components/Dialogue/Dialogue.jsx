@@ -8,9 +8,7 @@ export default function Dialogue(props) {
     const messages_list = localStorage.getItem('messages');
     const messages = JSON.parse(messages_list);
     return (
-        // <div className="chat-with-person" onClick={() => props.onClick('chat', props.chat_id)}>
-        // <div className="chat-with-person" onClick={props.onClick}>
-        <div className="chat-with-person" onClick={() => props.onClick(2)}>
+        <div className="chat-with-person">
             <Avatar/>
             <div className="chat-information">
                 <div className="info-row">
