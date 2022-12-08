@@ -5,6 +5,7 @@ import ChatFooter from '../../components/ChatFooter/ChatFooter';
 import './PageChat.scss'
 import { useParams } from "react-router";
 import { Centrifuge } from 'centrifuge';
+import Cookies from 'js-cookie';
 
 
 export default function PageChat(props) {
@@ -34,10 +35,6 @@ export default function PageChat(props) {
         sub.on('publication', function (neww) {
             setMess((newMess) => [neww.data, ...newMess])
         });
-
-        // sub.on('publication', (ctx) => {
-        //     setMess((prev) => [ctx.data, ...prev])
-        // })
     }
 
     useEffect(() => { connect() }, [])
@@ -46,39 +43,20 @@ export default function PageChat(props) {
 
     console.log(mess)
     
-    async function sendMess(message) {
-        const updatedMess = await fetch("/api/todo2/", {
+    function sendMess(message) {
+        fetch("/messages/create/", {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRFToken': Cookies.get('csrftoken'),
             },
             body: JSON.stringify({
-                "title": "123",
+                "author": 1,
+                "chat": 97,
+                "text": message
             })
         }).then(resp => (console.log(resp), resp.json()))
-        // if (message === '') return;
-        // const messages_container = localStorage.getItem('messages');
-        // let messages = JSON.parse(messages_container);
-        // const new_id = messages[params['id']][messages[params['id']].length - 1]['id'] + 1;
-        // let user = "me";
-        // if (message[0] === '/') {
-        //     user = "kek";
-        //     message = message.slice(1);   
-        // }
-        // const message_ = {
-        //     "id": new_id,
-        //     "author_username": user,
-        //     "author_id": 2,
-        //     "chat_title": "chatOne",
-        //     "text": message,
-        //     "pub_date": "11:12",
-        //     "is_readed": false,
-        //     "count_readers": 0,
-        //     "edited": false
-        // };
-        // messages[params['id']].push(message_);
-        // localStorage.setItem("messages", JSON.stringify(messages));
-        // setMess(messages);
     }
 
     return (
@@ -90,16 +68,3 @@ export default function PageChat(props) {
         </div>
     )
 }
-
-
-// export const sendMessageToChat = async (access_token, chat_id, body) => {
-//     const response = await fetch(`${API_URL}/api/messages/${chat_id}/`, {
-//         method: 'POST',
-//         body: JSON.stringify(body),
-//         headers: {
-//             Authorization: 'Bearer ' + access_token,
-//             'Content-Type': 'application/json'
-//         }
-//     })
-//     return await response.json()
-// }
