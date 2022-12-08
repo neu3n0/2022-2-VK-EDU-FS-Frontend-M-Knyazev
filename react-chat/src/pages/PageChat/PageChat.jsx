@@ -42,6 +42,7 @@ export default function PageChat(props) {
 
 
     console.log(mess)
+    console.log(user)
     
     function sendMess(message) {
         fetch("/messages/create/", {
@@ -53,7 +54,7 @@ export default function PageChat(props) {
             },
             body: JSON.stringify({
                 "author": 1,
-                "chat": 97,
+                "chat": params['id'],
                 "text": message
             })
         }).then(resp => (console.log(resp), resp.json()))
