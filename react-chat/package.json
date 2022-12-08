@@ -3,6 +3,7 @@
   "homepage": "https://neu3n0.github.io/2022-2-VK-EDU-FS-Frontend-M-Knyazev",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",

@@ -4,7 +4,7 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 
 export default function Message(props) {
     let st = 'flex-end'; 
-    if (props.message["author_username"] !== "me") {
+    if (props.message["author_username"] !== "neu3n0") {
         st = 'flex-start';
     } 
 

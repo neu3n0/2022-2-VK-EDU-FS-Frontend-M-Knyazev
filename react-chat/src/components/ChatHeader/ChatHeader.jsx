@@ -9,7 +9,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router-dom'
 
 
-export default function ChatHeader({chat_id}) {
+export default function ChatHeader({user}) {
     return (
         <div className="header-chat">
             <div className="header-left">
@@ -20,7 +20,7 @@ export default function ChatHeader({chat_id}) {
             </Link>
                 <div className="chat-info">
                     <Avatar />
-                    <ChatHeaderUserInfo chat_id = {chat_id}/>
+                    <ChatHeaderUserInfo user = {user}/>
                 </div>
             </div>
 
@@ -37,20 +37,36 @@ export default function ChatHeader({chat_id}) {
 }
 
 
-function ChatHeaderUserInfo({chat_id}) {
-    let chats = localStorage.getItem('chats');
-    chats = JSON.parse(chats);
-    return (
-        <div className="info">
-            <div className="chat-name">
-                <span className="kekw">
-                    {chats[chat_id]['chat']['title']}
-                </span>
+function ChatHeaderUserInfo({user}) {
+    if (user === 1111111) {
+        return (
+            <div className="info">
+                <div className="chat-name">
+                    <span className="kekw">
+                        {'commonChat'}
+                    </span>
+                </div>
+                <div className="chat-status">
+                    online
+                </div>
             </div>
-            <div className="chat-status">
-                online
+        )
+    } else {
+        // let chats = localStorage.getItem('chats');
+        // chats = JSON.parse(chats);
+        return (
+            <div className="info">
+                <div className="chat-name">
+                    <span className="kekw">
+                        {/* {chats[chat_id]['chat']['title']} */}
+                        {user}
+                    </span>
+                </div>
+                <div className="chat-status">
+                    online
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 

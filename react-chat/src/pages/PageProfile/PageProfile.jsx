@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ChatProfileHeader from "../../components/ChatProfileHeader/ChatProfileHeader"
 import ChatProfileForm from "../../components/ChatProfileForm/ChatProfileForm"
 import './PageProfile.scss'
