@@ -1,35 +1,37 @@
 import React from 'react'
-import './ChatHeader.scss'
-import '../button.scss'
-import Avatar from '../../components/Avatar/Avatar';
+import { Link } from 'react-router-dom'
+
+import Avatar from '../Avatar/Avatar';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Link } from 'react-router-dom'
+
+import styles from './ChatHeader.module.scss'
+import '../button.scss'
 
 
-export default function ChatHeader({user}) {
+export default function ChatHeader({ chat }) {
     return (
-        <div className="header-chat">
-            <div className="header-left">
-            <Link to="/">
-                <button className="button button-back">
-                    <ArrowBackIcon/>
-                </button>
-            </Link>
-                <div className="chat-info">
+        <div className={styles.headerChat}>
+            <div className={styles.headerLeft}>
+                <Link to="/">
+                    <button className="button button-back">
+                        <ArrowBackIcon />
+                    </button>
+                </Link>
+                <div className={styles.chatInfo}>
                     <Avatar />
-                    <ChatHeaderUserInfo user = {user}/>
+                    <ChatHeaderUserInfo chat={chat} />
                 </div>
             </div>
 
-            <div className="header-right">
+            <div className={styles.headerRight}>
                 <button className="button  button-find">
-                    <SearchIcon/>
+                    <SearchIcon />
                 </button>
                 <button className="button button-settings">
-                    <MoreVertIcon/>
+                    <MoreVertIcon />
                 </button>
             </div>
         </div>
@@ -37,36 +39,18 @@ export default function ChatHeader({user}) {
 }
 
 
-function ChatHeaderUserInfo({user}) {
-    if (user === 1111111) {
-        return (
-            <div className="info">
-                <div className="chat-name">
-                    <span className="kekw">
-                        {'commonChat'}
-                    </span>
-                </div>
-                <div className="chat-status">
-                    online
-                </div>
+function ChatHeaderUserInfo({ chat }) {
+    return (
+        <div className={styles.info}>
+            <div className={styles.chatName}>
+                <span className="kekw">
+                    {chat === 1111111 ? 'commonChat' : chat}
+                </span>
             </div>
-        )
-    } else {
-        // let chats = localStorage.getItem('chats');
-        // chats = JSON.parse(chats);
-        return (
-            <div className="info">
-                <div className="chat-name">
-                    <span className="kekw">
-                        {/* {chats[chat_id]['chat']['title']} */}
-                        {user}
-                    </span>
-                </div>
-                <div className="chat-status">
-                    online
-                </div>
+            <div className={styles.chatStatus}>
+                online
             </div>
-        )
-    }
+        </div>
+    )
 }
 

@@ -5,7 +5,7 @@
     padding: 4px;
     display: flex;
     justify-content: flex-end;
-    animation: animation-message 0.4s;
+    animation: animation-message 0.3s;
 }
 
 @keyframes animation-message{
@@ -20,7 +20,7 @@
     }
 }
 
-.message-wrap {
+.messageWrap {
     display: flex;
     max-width: 85%;
     padding: 5px 5px;
@@ -28,22 +28,20 @@
     border-radius: 20px;
 }
 
-.message-text {
+.messageText {
     overflow-wrap: anywhere;
-    /* word-break:break-all; */
     margin: 5px 10px;
 }
 
-.message-meta {
+.messageMeta {
     display: flex;
     align-items: flex-end;
     margin-left: 5px;
     margin-right: 3px;
-    /* text-align: right; */
     font-size: 9px;
 }
 
-.message-status {
+.messageStatus {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,7 +49,7 @@
     max-height: 24px;
 }
 
-.message-time {
+.messageTime {
     padding-left: 3px;
     font-size: 12px;
 }

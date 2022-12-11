@@ -1,49 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import ChatHeader from '../../components/ChatHeader/ChatHeader';
-import ChatContent from '../../components/ChatContent/ChatContent';
-import ChatFooter from '../../components/ChatFooter/ChatFooter';
-import './PageChat.scss'
+import React, { useContext, useState, useEffect } from "react";
+import { CentrifugeContext } from "../../CentifugeContext"
 import { useParams } from "react-router";
-import { Centrifuge } from 'centrifuge';
+import ChatHeader from "../../components/ChatHeader/ChatHeader";
+import ChatFooter from "../../components/ChatFooter/ChatFooter";
+import ChatContent from "../../components/ChatContent/ChatContent";
+
 import Cookies from 'js-cookie';
 
+import styles from './PageChat.module.scss'
 
-export default function PageChat(props) {
-
-
+export function PageChat() {
+    const { centrifugo } = useContext(CentrifugeContext)
     const params = useParams();
-
     const [mess, setMess] = useState([]);
-    const [user, setUser] = useState([]);
-    const [centrifugo, setCentrifugo] = useState(null)
-
+    const [chat, setChat] = useState('');
 
     async function connect() {
-        const updatedMess = await fetch("/chats/" + String(params['id']))
+        const updatedChat = await fetch("/chats/" + String(params['id']))
             .then(resp => resp.json())
-        console.log(updatedMess)
-        setMess(updatedMess['messages'])
-        setUser(updatedMess['title'])
-        const centrifugo = new Centrifuge('ws://localhost:9000/connection/websocket');
-        centrifugo.connect()
-        setCentrifugo(centrifugo)
+        setMess(updatedChat['messages'])
+        setChat(updatedChat['title'])
     }
 
     function subscribe() {
-        const sub = centrifugo.newSubscription('messages')
-        sub.subscribe()
+        console.log(centrifugo)
+        const sub = centrifugo._subs['messages' + String(params['id'])];
+        console.log(sub)
         sub.on('publication', function (neww) {
-            setMess((newMess) => [neww.data, ...newMess])
+            setMess((newMess) => [neww.data, ...newMess]);
         });
     }
+    useEffect(() => {
+        connect() && subscribe()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-    useEffect(() => { connect() }, [])
-    useEffect(() => { centrifugo && subscribe() }, [centrifugo])
-
-
-    console.log(mess)
-    console.log(user)
-    
     function sendMess(message) {
         fetch("/messages/create/", {
             method: 'POST',
@@ -57,13 +48,12 @@ export default function PageChat(props) {
                 "chat": params['id'],
                 "text": message
             })
-        }).then(resp => (console.log(resp), resp.json()))
+        }).then(resp => resp.json())
     }
 
     return (
-        <div className="message-layout">
-
-            <ChatHeader user={user} />
+        <div className={styles.messageLayout}>
+            <ChatHeader chat={chat} />
             <ChatContent messages={mess} />
             <ChatFooter chat_id={params['id']} sendMess={sendMess} />
         </div>

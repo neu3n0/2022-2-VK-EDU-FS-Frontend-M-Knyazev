@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
-import ChatProfileHeader from "../../components/ChatProfileHeader/ChatProfileHeader"
-import ChatProfileForm from "../../components/ChatProfileForm/ChatProfileForm"
-import './PageProfile.scss'
+import React, { useState } from "react";
+import styles from './PageProfile.module.scss'
+import ChatProfileHeader from "../../components/ChatProfileHeader/ChatProfileHeader";
+import ChatProfileForm from "../../components/ChatProfileForm/ChatProfileForm";
 
-
-export default function PageProfile(props) {
-
+export function PageProfile(props) {
     const [profile, setProfile] = useState(props.user);
 
+
     return (
-        <div className="profile-layout">
-            <ChatProfileHeader setCurrUser={() => {props.setUser(profile)}}/>
+        <div className={styles.profileLayout}>
+            <ChatProfileHeader setUser={() => {props.setUser(profile)}}/>
             <ChatProfileForm profile={profile} handleProfile={(key, value) => {
                 const prof = {...profile};
                 prof[key] = value;

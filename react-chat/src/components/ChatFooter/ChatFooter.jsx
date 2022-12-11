@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
-import './ChatFooter.scss'
-import '../button.scss'
-import FormMessage from '../../components/FormMessage/FormMessage';
+import FormMessage from '../FormMessage/FormMessage';
 
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import SendIcon from '@mui/icons-material/Send';
+
+import '../button.scss'
+import styles from './ChatFooter.module.scss'
+
 
 export default function ChatFooter(props) {
     const [val, setVal] = useState('');
@@ -17,8 +19,8 @@ export default function ChatFooter(props) {
     }
 
     return (
-        <div className="footer-chat">
-            <div className="footer-left">
+        <div className={styles.footerChat}>
+            <div className={styles.footerLeft}>
                 <button className="button button-emoji">
                     <SentimentSatisfiedIcon/>
                 </button>
@@ -30,7 +32,7 @@ export default function ChatFooter(props) {
                 </button>
             </div>
 
-            <div className="footer-right">
+            <div className={styles.footerRight}>
                 <button className="button button-send" onClick={handleSubmit}>
                     <SendIcon/>
                 </button>

@@ -1,93 +1,82 @@
 import React, { useEffect, useState } from 'react'
 import ChatHeader from '../../components/ChatHeader/ChatHeader';
-import ChatContent from '../../components/ChatContent/ChatContent';
 import ChatFooter from '../../components/ChatFooter/ChatFooter';
 import './PageCommonChat.scss'
-import { useParams } from "react-router";
 import DoneAllIcon from '@mui/icons-material/DoneAll';
+import styles from '../PageChat/PageChat.module.scss'
+import stylesMess from '../../components/Message/Message.module.scss'
+import stylesContent from '../../components/ChatContent/ChatContent.module.scss'
 
 
-
-// const SomeFunctionalComponent = () => {
-//     const [messages, setMessages] = useState([])
-//     useEffect(() => {
-//         fetch(`${API_URL}`)
-//             .then(res => res.json())
-//             .then(data => {
-//                 console.log(data);
-//                 setMessages(data.messages)
-//             });
-//     }, []);
-
-// }
-
-// const listChats = chats.map((chat) =>
-//     <Link key={chat['chat']['id']} to={`chats/${chat['chat']['id']}`} style={{ textDecoration: 'none', color: '#333' }}>
-//         <Dialogue chat={chat} chat_id={chat['chat']['id']} />
-//     </Link>
-// );
-
-// const pollItems = () => {
-//     fetch('https://tt-front.vercel.app/messages/')
-//     .then(resp => resp.json())
-//     .then(data => console.log(data));
-// }
-
-export default function PageCommonChat(props) {
+export function PageCommonChat(props) {
     const [messages, setMessages] = useState([])
 
     useEffect(() => {
-        fetch('https://tt-front.vercel.app/messages/')
+        const poll = () => {
+            fetch('https://tt-front.vercel.app/messages/')
             .then(resp => resp.json())
             .then(data => {
                 console.log(data);
                 setMessages(data)
             });
+        }
+        setInterval(() => poll(), 1000)
     }, [])
-    {/* <div key={message['_id']}> {message['text']}  {message['author']}</div> */}
 
-    const messagesList = messages.map((message) =>
+    const messagesList = messages.reverse().map((message) =>
         <MessageCommon key={message['_id']} message={message} />
     );
 
+
+    function sendMess(message) {
+        fetch("https://tt-front.vercel.app/message", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                "author": "neu3n0",
+                "text": message
+            })
+        }).then(resp => resp.json())
+    }
+
     return (
-        <div className="message-layout">
-            <ChatHeader chat_id={1111111} />
-            {/* <ChatHeader chat_id={params['id']} />
-            <ChatContent chat_id={params['id']} messages={mess}/>
-            <ChatFooter chat_id={params['id']} sendMess={sendMess}/> */}
-            <div className="content-chat">
-                <div className="message-container">
+        <div className={styles.messageLayout}>
+            <ChatHeader chat={1111111} />
+            <div className={stylesContent.contentChat}>
+                <div className={stylesContent.messageContainer}>
                     {messagesList}
                 </div>
             </div>
-            <ChatFooter chat_id={1111111} sendMess={() => {console.log(1)}}/>
+            <ChatFooter chat_id={1111111} sendMess={sendMess} />
         </div>
     )
 }
 
 
 function MessageCommon(props) {
-    let st = 'flex-end'; 
-    if (props.message["author"] !== "me") {
+    let st = 'flex-end';
+    if (props.message["author"] !== "neu3n0") {
         st = 'flex-start';
-    } 
+    }
 
     return (
-        <div className="message" style={{
+        <div className={stylesMess.message} style={{
             'justifyContent': st
         }}>
-            <div className="message-wrap">
-                <span className="message-text">
+            <div className={stylesMess.messageWrap}>
+                <span className={stylesMess.messageText}>
                     {props.message['text']}
                 </span>
 
-                <div className="message-meta">
-                    <div className="message-status">
-                        <DoneAllIcon className="done_all" style={{fontSize: '17px',  color: 'rgb(35, 182, 35)'}}/>
+                <div className={stylesMess.messageMeta}>
+                    <div className={stylesMess.messageStatus}>
+                        <DoneAllIcon className="done_all" style={{ fontSize: '17px', color: 'rgb(35, 182, 35)' }} />
                     </div>
-                    <div className="message-time">
-                        {props.message['timestep']}
+                    <div className={stylesMess.messageTime}>
+                        {props.message['timestamp']}
                     </div>
                 </div>
             </div>

@@ -1,6 +1,8 @@
 import React from 'react'
-import './Message.scss'
 import DoneAllIcon from '@mui/icons-material/DoneAll';
+
+import styles from './Message.module.scss'
+
 
 export default function Message(props) {
     let st = 'flex-end'; 
@@ -9,19 +11,19 @@ export default function Message(props) {
     } 
 
     return (
-        <div className="message" style={{
+        <div className={styles.message} style={{
             'justifyContent': st
         }}>
-            <div className="message-wrap">
-                <span className="message-text">
+            <div className={styles.messageWrap}>
+                <span className={styles.messageText}>
                     {props.message['text']}
                 </span>
 
-                <div className="message-meta">
-                    <div className="message-status">
+                <div className={styles.messageMeta}>
+                    <div className={styles.messageStatus}>
                         <DoneAllIcon className="done_all" style={{fontSize: '17px',  color: 'rgb(35, 182, 35)'}}/>
                     </div>
-                    <div className="message-time">
+                    <div className={styles.messageTime}>
                         {props.message['pub_date']}
                     </div>
                 </div>

@@ -2,25 +2,10 @@ import './PageLogin.scss'
 import kek from "../../images/kek.jpeg"
 import { Link } from 'react-router-dom'
 import { googleLogin } from '@react-oauth/google'
+import { Redirect } from 'react-router-dom';
 
 
-
-export default function PageChatList(props) {
-    
-    // const { setTokens, setUser } = useContext(LoginContext)
-
-    // const login = googleLogin({
-    //   onSuccess: async (tokensResponse) => {
-    //     const tokens = await getTokens(tokensResponse.access_token)
-    //     setTokens(tokens)
-  
-    //     const user = await getUser(tokens.access_token)
-    //     setUser(user)
-    //   }
-    // })
-
-
-
+export default function PageLogin(props) {
     return (
         <div className='login-wrapper'>
             <div className="login-container">
@@ -36,14 +21,6 @@ export default function PageChatList(props) {
                 <button className='button-login'>
                     Instagram
                 </button>
-                <googleLogin
-                    onSuccess={credentialResponse => {
-                        console.log(credentialResponse);
-                    }}
-                    onError={() => {
-                        console.log('Login Failed');
-                    }}
-                    />;
             </div>
         </div>
     )

@@ -1,12 +1,11 @@
-.input-line {
-    /* border-right: 1px solid gray; */
+.inputLine {
     display: flex;
     justify-content: left;
     align-items: center;
     flex-grow: 1;
 }
 
-.form-message {
+.formMessage {
     width: 100%;
     display: inline-block;
     margin: 5px 10px;

@@ -1,50 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import Dialogue from '../../components/Dialogue/Dialogue';
-import './ChatList.scss'
+import React, { useContext } from 'react'
+import { CentrifugeContext } from "../../CentifugeContext"
+import Dialogue from '../Dialogue/Dialogue';
 import { Link } from 'react-router-dom'
-import { Centrifuge } from 'centrifuge';
+import styles from './ChatList.module.scss'
 
-
-export default function ChatList(props) {
-    const [chats, setChats] = useState([])
-    const [centrifugo, setCentrifugo] = useState(null)
-
-    async function connect() {
-        const updatedChats = await fetch("/chats/")
-            .then(resp => resp.json())
-        setChats(updatedChats)
-        const centrifugo = new Centrifuge('ws://localhost:9000/connection/websocket');
-        centrifugo.connect()
-        setCentrifugo(centrifugo)
-    }
-
-    function subscribe() {
-        const sub = centrifugo.newSubscription('chat')
-        sub.subscribe()
-        sub.on('publication', function(neww) {
-            setChats((newChats) => [neww.data, ...newChats])
-        });
-    }
-
-    console.log(chats)
-
-    useEffect(() => { connect() }, [])
-    useEffect(() => { centrifugo && subscribe() }, [centrifugo])
-
-    let listChats = chats.map((chat) =>
+export default function ChatList() {
+    const { chats } = useContext(CentrifugeContext);
+    
+    let listChats = chats && chats.map((chat) =>
         <Link key={chat['chat']['id']} to={`chats/${chat['chat']['id']}`} style={{ textDecoration: 'none', color: '#333' }}>
             <Dialogue chat={chat} />
         </Link>
     );
 
+    const commonChat = {
+        chat: {
+            title: "commonChat"
+        },
+        last_message: {
+            text: 'lasttest',
+            pub_date: 'now',
+        }
+    }
+
     return (
-        <div className="chats-list">
-            <div className="chats-container">
+        <div className={styles.chatList}>
+            <div className={styles.chatContainer}>
                 {listChats}
-                <Link to={'chats/commonChat'} style={{ textDecoration: 'none', color: '#333' }}>
-                    <button className='common-chat'>
-                        common-chat
-                    </button>
+                <Link key={1111111} to={'chats/commonChat'} style={{ textDecoration: 'none', color: '#333' }}>
+                    <Dialogue chat={commonChat} />
                 </Link>
             </div>
         </div>
