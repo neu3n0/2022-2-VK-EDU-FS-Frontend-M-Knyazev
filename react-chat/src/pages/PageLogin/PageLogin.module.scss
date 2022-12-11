@@ -1,0 +1,38 @@
+.loginWrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color:azure;
+}
+
+.loginContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-center;
+    flex-direction: column;
+    padding-top: 40%;
+}
+
+
+.buttonLogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background-color: rgba(189, 189, 189, 0.933);
+    border: none;
+    width: 24rem;
+    height: 2rem;
+    margin-bottom: 5px;
+}
+
+.buttonLogin:hover {
+    background-color: rgb(156, 156, 156);
+    color: white;
+}
+
+.logo {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    margin-bottom: 30px;
+}

@@ -5,7 +5,7 @@ import { CentrifugeContext } from "./CentifugeContext"
 import { Centrifuge } from 'centrifuge'
 
 
-import { PageChat, PageChatList, PageProfile, PageCommonChat } from './pages'
+import { PageChat, PageChatList, PageProfile, PageCommonChat, PageLogin } from './pages'
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
         description: '',
     });
     const [load, setLoad] = useState(false);
+    const [login, setLogin] = useState(false);
 
     async function getChats() {
         await fetch("/chats/")
@@ -27,8 +28,8 @@ function App() {
     }
 
     async function getUser() {
-        await fetch("/users/1/")
-            .then(resp => resp.json()).then(data => { setUser(data); })
+        await fetch("/users/")
+            .then(resp => resp.json()).then(data => { setUser(data) })
     }
 
     function subscribe() {
@@ -54,6 +55,9 @@ function App() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [load]);
 
+
+    console.log('login: ', login);
+
     console.log('centr: ', centrifugo, '\nchats: ', chats, '\nuser: ', user)
     if (centrifugo && chats && user) {
         return (
@@ -61,10 +65,11 @@ function App() {
                 <HashRouter>
                     <CentrifugeContext.Provider value={{ centrifugo, chats }}>
                         <Routes>
-                            <Route path="/" exact element=<PageChatList /> />
+                            <Route path="/chats" element=<PageChatList /> />
                             <Route path="chats/:id" element=<PageChat /> />
                             <Route path="profile" element=<PageProfile user={user} setUser={setUser} /> />
                             <Route path='chats/commonChat' element={<PageCommonChat />} />
+                            <Route path='/' exact element={<PageLogin login={login} setLogin={() => setLogin(true)} />} />
                         </Routes>
                     </CentrifugeContext.Provider>
                 </HashRouter>

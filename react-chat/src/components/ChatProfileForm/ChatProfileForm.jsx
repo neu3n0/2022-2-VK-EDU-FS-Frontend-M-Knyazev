@@ -16,7 +16,7 @@ export default function ChatProfileForm(props) {
 
 
 function FirstNameForm(props) {
-    const first_name = props.first_name;
+    const first_name = props.first_name ? props.first_name : '';
     return (
         <fieldset className={styles.profileForm}>
             <legend>First name</legend>
@@ -26,7 +26,7 @@ function FirstNameForm(props) {
 }
 
 function LastNameForm(props) {
-    const last_name = props.last_name;
+    const last_name = props.last_name ? props.last_name : '';
     return (
         <fieldset className={styles.profileForm}>
             <legend>Last name</legend>
@@ -36,7 +36,7 @@ function LastNameForm(props) {
 }
 
 function UserNameForm(props) {
-    const username =  props.username;
+    const username =  props.username ? props.username : '';
     return (
         <fieldset className={styles.profileForm}>
             <legend>Username</legend>
@@ -46,11 +46,11 @@ function UserNameForm(props) {
 }
 
 function DescriptionForm(props) {
-    const description =  props.description;
+    const description =  props.description ? props.description : '';
     return (
         <fieldset className={styles.profileForm}>
             <legend>Description</legend>
-            <input className={styles.heh} type="text" value={description} onChange={(e) => props.handleProfile('boi', e.target.value)}/>
+            <input className={styles.heh} type="text" value={description} onChange={(e) => props.handleProfile('description', e.target.value)}/>
         </fieldset>
     )
 }

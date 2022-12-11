@@ -1,24 +1,19 @@
-import './PageLogin.scss'
 import kek from "../../images/kek.jpeg"
-import { Link } from 'react-router-dom'
-import { googleLogin } from '@react-oauth/google'
-import { Redirect } from 'react-router-dom';
 
+import styles from './PageLogin.module.scss'
 
-export default function PageLogin(props) {
+export function PageLogin(props) {
     return (
-        <div className='login-wrapper'>
-            <div className="login-container">
-                <img className="logo" src={kek} alt="lol" />
-                <Link to="/" style={{ textDecoration: 'none', color: '#333' }}>
-                    <button className='button-login'>
-                        Google
-                    </button>
-                </Link>
-                <button className='button-login'>
+        <div className={styles.loginWrapper}>
+            <div className={styles.loginContainer}>
+                <img className={styles.logo} src={kek} alt="lol" />
+                <a className={styles.buttonLogin} href="http://localhost:8000/social-auth/login/google-oauth2/" style={{ textDecoration: 'none', color: '#333' }} onClick={props.setLogin}>
+                    Google
+                </a>
+                <button className={styles.buttonLogin}>
                     Facebook
                 </button>
-                <button className='button-login'>
+                <button className={styles.buttonLogin}>
                     Instagram
                 </button>
             </div>

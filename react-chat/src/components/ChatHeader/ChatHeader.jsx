@@ -15,7 +15,7 @@ export default function ChatHeader({ chat }) {
     return (
         <div className={styles.headerChat}>
             <div className={styles.headerLeft}>
-                <Link to="/">
+                <Link to="/chats">
                     <button className="button button-back">
                         <ArrowBackIcon />
                     </button>

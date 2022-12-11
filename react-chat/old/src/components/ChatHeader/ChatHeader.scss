@@ -1,0 +1,51 @@
+.header-chat {
+    height: 60px;
+    background-color: #eeee;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+
+.header-right {
+    display: flex;
+    justify-content: right;
+    align-content: center;
+    margin-left: 7px;
+    flex-grow: 1;
+}
+
+.chat-info {
+    display: flex;
+    justify-content: left;
+    flex-grow: 1;
+    max-height: 40px;
+}
+
+.info {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-grow: 1;
+}
+
+.chat-name {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.chat-status {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
