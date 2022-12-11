@@ -9,9 +9,15 @@ import { PageChat, PageChatList, PageProfile, PageCommonChat } from './pages'
 
 
 function App() {
+
     const [centrifugo, setCentrifugo] = useState(null);
     const [chats, setChats] = useState([]);
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState({
+        username: '',
+        first_name: '',
+        last_name: '',
+        description: '',
+    });
     const [load, setLoad] = useState(false);
 
     async function getChats() {
