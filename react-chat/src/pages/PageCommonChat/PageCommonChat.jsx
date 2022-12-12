@@ -14,13 +14,16 @@ export function PageCommonChat(props) {
     useEffect(() => {
         const poll = () => {
             fetch('https://tt-front.vercel.app/messages/')
-            .then(resp => resp.json())
-            .then(data => {
-                console.log(data);
-                setMessages(data)
-            });
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data);
+                    setMessages(data)
+                });
         }
-        setInterval(() => poll(), 1000)
+        const intervalId = setInterval(() => poll(), 1000);
+        return () => {
+            clearInterval(intervalId);
+        };
     }, [])
 
     const messagesList = messages.reverse().map((message) =>
@@ -66,17 +69,25 @@ function MessageCommon(props) {
         <div className={stylesMess.message} style={{
             'justifyContent': st
         }}>
-            <div className={stylesMess.messageWrap}>
-                <span className={stylesMess.messageText}>
-                    {props.message['text']}
-                </span>
 
-                <div className={stylesMess.messageMeta}>
-                    <div className={stylesMess.messageStatus}>
-                        <DoneAllIcon className="done_all" style={{ fontSize: '17px', color: 'rgb(35, 182, 35)' }} />
+            <div className={stylesMess.messageWrap}>
+                <div className={stylesMess.messageUp}>
+                    <div className={stylesMess.messageUsername}>
+                        {props.message['author']}
                     </div>
-                    <div className={stylesMess.messageTime}>
-                        {props.message['timestamp']}
+                </div>
+                <div className={stylesMess.messageDown}>
+                    <span className={stylesMess.messageText}>
+                        {props.message['text']}
+                    </span>
+
+                    <div className={stylesMess.messageMeta}>
+                        <div className={stylesMess.messageStatus}>
+                            <DoneAllIcon className="done_all" style={{ fontSize: '17px', color: 'rgb(35, 182, 35)' }} />
+                        </div>
+                        <div className={stylesMess.messageTime}>
+                            {props.message['timestamp']}
+                        </div>
                     </div>
                 </div>
             </div>
