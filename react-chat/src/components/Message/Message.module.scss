@@ -22,10 +22,22 @@
 
 .messageWrap {
     display: flex;
+    flex-direction: column;
     max-width: 85%;
     padding: 5px 5px;
     background-color:azure;
     border-radius: 20px;
+}
+
+.messageUp {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 12px;
+}
+
+.messageDown {
+    display: flex;
+    flex-direction: row;
 }
 
 .messageText {
@@ -52,4 +64,11 @@
 .messageTime {
     padding-left: 3px;
     font-size: 12px;
+}
+
+.messageUsername {
+    display: flex;
+    justify-content: flex-end;
+    color: red;
+    font-size: 14px;
 }
