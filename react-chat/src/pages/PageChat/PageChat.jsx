@@ -1,48 +1,61 @@
-import React, { useState } from 'react'
-import ChatHeader from '../../components/ChatHeader/ChatHeader';
-import ChatContent from '../../components/ChatContent/ChatContent';
-import ChatFooter from '../../components/ChatFooter/ChatFooter';
-import './PageChat.scss'
+import React, { useContext, useState, useEffect } from "react";
+import { CentrifugeContext } from "../../CentifugeContext"
 import { useParams } from "react-router";
+import ChatHeader from "../../components/ChatHeader/ChatHeader";
+import ChatFooter from "../../components/ChatFooter/ChatFooter";
+import ChatContent from "../../components/ChatContent/ChatContent";
 
-export default function PageChat(props) {
+import Cookies from 'js-cookie';
 
+import styles from './PageChat.module.scss'
 
+export function PageChat() {
+    const { centrifugo } = useContext(CentrifugeContext)
     const params = useParams();
-
     const [mess, setMess] = useState([]);
+    const [chat, setChat] = useState('');
+
+    async function connect() {
+        const updatedChat = await fetch("/chats/" + String(params['id']))
+            .then(resp => resp.json())
+        setMess(updatedChat['messages'])
+        setChat(updatedChat['title'])
+    }
+
+    function subscribe() {
+        console.log(centrifugo)
+        const sub = centrifugo._subs['messages' + String(params['id'])];
+        console.log(sub)
+        sub.on('publication', function (neww) {
+            setMess((newMess) => [neww.data, ...newMess]);
+        });
+    }
+    useEffect(() => {
+        connect() && subscribe()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     function sendMess(message) {
-        if (message === '') return;
-        const messages_container = localStorage.getItem('messages');
-        let messages = JSON.parse(messages_container);
-        const new_id = messages[params['id']][messages[params['id']].length - 1]['id'] + 1;
-        let user = "me";
-        if (message[0] === '/') {
-            user = "kek";
-            message = message.slice(1);   
-        }
-        const message_ = {
-            "id": new_id,
-            "author_username": user,
-            "author_id": 2,
-            "chat_title": "chatOne",
-            "text": message,
-            "pub_date": "11:12",
-            "is_readed": false,
-            "count_readers": 0,
-            "edited": false
-        };
-        messages[params['id']].push(message_);
-        localStorage.setItem("messages", JSON.stringify(messages));
-        setMess(messages);
+        fetch("/messages/create/", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRFToken': Cookies.get('csrftoken'),
+            },
+            body: JSON.stringify({
+                "author": 1,
+                "chat": params['id'],
+                "text": message
+            })
+        }).then(resp => resp.json())
     }
 
     return (
-        <div className="message-layout">
-            <ChatHeader chat_id={params['id']} />
-            <ChatContent chat_id={params['id']} messages={mess}/>
-            <ChatFooter chat_id={params['id']} sendMess={sendMess}/>
+        <div className={styles.messageLayout}>
+            <ChatHeader chat={chat} />
+            <ChatContent messages={mess} />
+            <ChatFooter chat_id={params['id']} sendMess={sendMess} />
         </div>
     )
 }

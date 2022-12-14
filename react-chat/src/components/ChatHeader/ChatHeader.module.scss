@@ -1,4 +1,4 @@
-.header-chat {
+.headerChat {
     height: 60px;
     background-color: #eeee;
     padding: 10px 10px;
@@ -6,13 +6,13 @@
     justify-content: space-between;
 }
 
-.header-left {
+.headerLeft {
     display: flex;
     justify-content: left;
     width: 100%;
 }
 
-.header-right {
+.headerRight {
     display: flex;
     justify-content: right;
     align-content: center;
@@ -20,7 +20,7 @@
     flex-grow: 1;
 }
 
-.chat-info {
+.chatInfo {
     display: flex;
     justify-content: left;
     flex-grow: 1;
@@ -36,7 +36,7 @@
     flex-grow: 1;
 }
 
-.chat-name {
+.chatName {
     display: flex;
     align-items: center;
     flex-grow: 1;
@@ -44,7 +44,7 @@
     font-weight: 800;
 }
 
-.chat-status {
+.chatStatus {
     display: flex;
     align-items: center;
     flex-grow: 1;
