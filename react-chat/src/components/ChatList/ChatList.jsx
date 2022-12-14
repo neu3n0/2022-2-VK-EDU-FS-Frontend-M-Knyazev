@@ -8,7 +8,7 @@ export default function ChatList() {
     const { chats } = useContext(CentrifugeContext);
     
     let listChats = chats && chats.map((chat) =>
-        <Link key={chat['chat']['id']} to={`chats/${chat['chat']['id']}`} style={{ textDecoration: 'none', color: '#333' }}>
+        <Link key={chat['chat']['id']} to={`${chat['chat']['id']}`} style={{ textDecoration: 'none', color: '#333' }}>
             <Dialogue chat={chat} />
         </Link>
     );
@@ -27,7 +27,7 @@ export default function ChatList() {
         <div className={styles.chatList}>
             <div className={styles.chatContainer}>
                 {listChats}
-                <Link key={1111111} to={'chats/commonChat'} style={{ textDecoration: 'none', color: '#333' }}>
+                <Link key={1111111} to={'commonChat'} style={{ textDecoration: 'none', color: '#333' }}>
                     <Dialogue chat={commonChat} />
                 </Link>
             </div>

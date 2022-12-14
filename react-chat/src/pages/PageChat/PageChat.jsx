@@ -21,6 +21,7 @@ export function PageChat() {
         setMess(updatedChat['messages'])
         setChat(updatedChat['title'])
     }
+    console.log('mess:', mess)
 
     function subscribe() {
         console.log(centrifugo)

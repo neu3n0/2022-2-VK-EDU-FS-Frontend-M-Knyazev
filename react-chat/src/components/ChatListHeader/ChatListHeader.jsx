@@ -10,7 +10,7 @@ export default function ChatListHeader(props) {
     return (
         <div className={styles.headerChat}>
             <div className={styles.headerLeft}>
-                <Link to="profile">
+                <Link to="/profile">
                     <button className="button button-menu">
                         <MenuIcon/>
                     </button>

@@ -15,6 +15,12 @@ export function PageProfile(props) {
                 prof[key] = value;
                 setProfile(prof);
             }} />
+            <div className={styles.buttonLogout}>
+                <a className={styles.logout} href="http://localhost:8000/logout/" style={{ textDecoration: 'none', color: '#333' }}>
+                    Logout
+                </a>
+            </div>
+            
         </div>
     )
 }
