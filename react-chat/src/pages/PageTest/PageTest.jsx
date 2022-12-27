@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { getMessages } from "../actions";
+import { getMessages } from "../../actions/test";
 
 function PageTest(props) {
     return (
