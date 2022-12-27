@@ -15,3 +15,7 @@ export const CENTRIFUGO_DISCONNECT = '@@centrifugo/CENTRIFUGO_DISCONNECT'
 
 export const CENTRIFUGO_SUB = '@@centrifugo/CENTRIFUGO_SUB'
 export const CENTRIFUGO_UNSUB = '@@centrifugo/CENTRIFUGO_UNSUB'
+
+export const GET_USER_REQUEST = '@@user/GET_USER_REQUEST'
+export const GET_USER_SUCCESS = '@@user/GET_USER_SUCCESS'
+export const GET_USER_FAILURE = '@@user/GET_USER_FAILURE'

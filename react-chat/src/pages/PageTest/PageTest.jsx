@@ -1,7 +1,13 @@
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { getMessages } from "../../actions/test";
 
 function PageTest(props) {
+
+    // useEffect(() => {
+    //     setInterval(() => props.getMessages(), 3000)
+    // }, [])
+
     return (
         <>
             <h1>Home</h1>

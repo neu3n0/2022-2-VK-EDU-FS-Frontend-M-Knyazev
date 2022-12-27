@@ -9,6 +9,9 @@ import Cookies from 'js-cookie';
 
 import styles from './PageChat.module.scss'
 
+import { getMessages } from "../../actions/test";
+import { connect } from "react-redux";
+
 export function PageChat() {
     const { centrifugo } = useContext(CentrifugeContext)
     const params = useParams();
