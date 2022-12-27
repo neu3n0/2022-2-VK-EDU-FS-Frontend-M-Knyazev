@@ -7,6 +7,7 @@ import { Centrifuge } from 'centrifuge'
 
 import { PageChat, PageChatList, PageProfile, PageCommonChat, PageLogin } from './pages'
 
+import PageTest from './pages/PageTest'
 
 function App() {
 
@@ -70,6 +71,7 @@ function App() {
                             <Route path="profile" element=<PageProfile user={user} setUser={setUser} /> />
                             <Route path='chats/commonChat' element={<PageCommonChat />} />
                             <Route path='/' exact element={<PageLogin login={login} setLogin={() => setLogin(true)} />} />
+                            <Route path="/test" element={<PageTest/>} />
                         </Routes>
                     </CentrifugeContext.Provider>
                 </HashRouter>
