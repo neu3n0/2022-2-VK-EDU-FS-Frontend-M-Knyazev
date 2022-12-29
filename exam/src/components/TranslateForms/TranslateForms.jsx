@@ -11,13 +11,13 @@ export default function TranslateForms() {
     function handleSubmit(val) {
         setInp(val);
         console.log(val);
-        translate();
+        translate(val, setOut);
     }
 
     return (
         <div className={styles.wrapper}>
             <FormIn inp={inp} setInp={handleSubmit} />
-            <FormOut inp={output} setInp={(val) => {setOut(val);}} />
+            <FormOut output={output}  />
         </div>
     )
 }
@@ -35,7 +35,7 @@ function FormOut(props) {
     const output = props.output;
     return (
         <div className={styles.inputForm}>
-            <textarea className={styles.heh} type="text" value={output} onChange={(e) => props.setOut(e.target.value)} />
+            <textarea className={styles.heh} type="text" value={output} onChange={() => {}} />
         </div>
     )
 }

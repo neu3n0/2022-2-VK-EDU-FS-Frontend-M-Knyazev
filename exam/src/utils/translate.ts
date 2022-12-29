@@ -3,7 +3,7 @@ import { IAM_token, folderId } from './keys';
 
 import { detectLanguage } from './detectLanguage'; 
 
-export async function translate(value: string) {
+export async function translate(value: string, setOut: any) {
 
     // const head = {
     //     headers: {
@@ -22,7 +22,7 @@ export async function translate(value: string) {
     // const data = await axios.post('https://translate.api.cloud.yandex.net/translate/v2/translate', bodyParameters, head);
     // // console.log(data.data.translations[0].text); 
     // console.log(1)
-    // const text: string = "{"+ value" +"}";
+    const text: string = '[{"Text":"{' + value + '}"}]';
     const options = {
         method: 'POST',
         headers: {
@@ -30,14 +30,13 @@ export async function translate(value: string) {
             'X-RapidAPI-Key': 'df5ffa97f3mshfa5277882376ad1p1db7b7jsnb69ba524116a',
             'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com'
         },
-        body: '[{"Text":"{I would really like to drive your car around the block a few times.}"}]'
+        body: text
     };
-    
-    fetch('https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=ru&api-version=3.0&profanityAction=NoAction&textType=plain', options)
+    const result: any = fetch('https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=ru&api-version=3.0&profanityAction=NoAction&textType=plain', options)
         .then(response => response.json())
-        .then(response => console.log(response))
+        .then(response => { console.log(response); setOut(response[0].translations[0].text)})
         .catch(err => console.error(err));
-    
+
 }
 
 
