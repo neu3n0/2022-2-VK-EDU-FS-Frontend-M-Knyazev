@@ -9,7 +9,7 @@ function App() {
         <div className="App">
             <HashRouter>
                 <Routes>
-                    <Route path='history' element={<PageHistory />} />
+                    <Route path='/history' element={<PageHistory />} />
                     <Route path='/' element={<PageTranslate />} />
                 </Routes>
             </HashRouter>

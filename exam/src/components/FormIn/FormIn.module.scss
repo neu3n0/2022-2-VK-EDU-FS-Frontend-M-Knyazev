@@ -1,9 +1,12 @@
-.wrapper {
+.main {
+    width: 84%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
 }
 
 .inputForm {
+    border: none;
     width: 84%;
     display: flex;
     align-items: center;
@@ -13,11 +16,10 @@
 
 
 .heh {
+    border-radius: 10px;
+    padding: 12px 12px;
     height: 20rem;
     width: 80%;
     background-color:  transparent;
-}
-
-.lang {
-    margin-bottom: 30px;
+    font-size: 20px;
 }
