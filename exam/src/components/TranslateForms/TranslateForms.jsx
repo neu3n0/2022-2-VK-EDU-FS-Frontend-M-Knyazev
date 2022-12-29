@@ -46,7 +46,7 @@ export default function TranslateForms() {
         <div>
             <div>
                 
-                <select className={styles.lang} onClick={(e) => {setLang(e.target.value)}}>
+                <select className={styles.lang} onClick={(e) => {setLang(e.target.value); translate(inp, setOut, e.target.value);}}>
                     {listLangs}
                 </select>
             </div>
