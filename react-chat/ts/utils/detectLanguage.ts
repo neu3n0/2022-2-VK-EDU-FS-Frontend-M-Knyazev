@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { IAM_token, folderId } from './keys';
 
-export async function detectLanguage(text: string) {
+export async function detectLanguage(text: string) : Promise<string> {
 
     const head: any = {
         headers: {
@@ -22,5 +22,3 @@ export async function detectLanguage(text: string) {
     // console.log(data.data.languageCode);
     return data.data.languageCode;
 }
-
-detectLanguage('hello')
