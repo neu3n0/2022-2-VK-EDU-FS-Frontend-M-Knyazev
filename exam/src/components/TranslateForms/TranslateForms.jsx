@@ -11,18 +11,18 @@ import { getLangs } from '../../utils/getLangs';
 export default function TranslateForms() {
     const [inp, setInp] = useState('');
     const [output, setOut] = useState('');
-    const [langs_, setLangs] = useState({});
+    const [langs, setLangs] = useState([]);
+    const [lang, setLang] = useState('en');
 
     useEffect(() => {
         getLangs(setLangs);
     }, [])
 
-    console.log(langs_)
+
 
     function handleChange(val) {
         setInp(val);
-        console.log(val);
-        translate(val, setOut);
+        translate(val, setOut, lang);
     }
 
     function handleSubmit(e) {
@@ -36,19 +36,17 @@ export default function TranslateForms() {
         localStorage.setItem('history', JSON.stringify(history));
     }
 
-
-    const langs = ['ru', 'eu']
-
     let listLangs = langs.length !== 0 && langs.map((lang) =>
-        <option key={lang} style={{ textDecoration: 'none', color: '#333' }}>
-            {lang}
+        <option key={lang[0]} style={{ textDecoration: 'none', color: '#333' }}>
+            {lang[0]}
         </option>
     );
 
     return (
         <div>
             <div>
-                <select className={styles.lang}>
+                
+                <select className={styles.lang} onClick={(e) => {setLang(e.target.value)}}>
                     {listLangs}
                 </select>
             </div>

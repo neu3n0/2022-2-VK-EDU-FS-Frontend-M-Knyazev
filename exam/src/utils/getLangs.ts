@@ -1,4 +1,3 @@
-
 export async function getLangs(setLangs: any) {
     const options = {
         method: 'GET',
@@ -12,10 +11,11 @@ export async function getLangs(setLangs: any) {
     await fetch('https://microsoft-translator-text.p.rapidapi.com/languages?api-version=3.0', options)
         .then(response => response.json())
         .then(response => {
-            // for (let vegetable of response.dictionary.keys()) {
-            //     console.log(vegetable); // огурец, помидор, лук
-            // }
-            setLangs(response.dictionary)
+            let m: Array<[string, string]> = [];
+            for (let key in response.dictionary) {
+                m.push([key, response.dictionary[key].name]);
+            }
+            setLangs(m);
         })
         .catch(err => console.error(err));
 }

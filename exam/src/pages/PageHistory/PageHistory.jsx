@@ -7,7 +7,7 @@ export function PageHistory() {
     const [history, ] = useState(JSON.parse(localStorage.getItem('history')));
 
     const listHistory = history.length !== 0 && history.map((hist) =>
-        <div className={styles.hist} key={hist} style={{ textDecoration: 'none', color: '#333' }}>
+        <div className={styles.hist} key={Math.random() * 1000000000} style={{ textDecoration: 'none', color: '#333' }}>
             {hist[0] + ": " + hist[1].slice(0, hist[1].length - 1).slice(1)}
         </div>
     );

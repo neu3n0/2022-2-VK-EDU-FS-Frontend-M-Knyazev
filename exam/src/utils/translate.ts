@@ -1,4 +1,4 @@
-export async function translate(value: string, setOut: any) {
+export async function translate(value: string, setOut: any, lang: string) {
     const text: string = '[{"Text":"{' + value + '}"}]';
     const options = {
         method: 'POST',
@@ -9,8 +9,8 @@ export async function translate(value: string, setOut: any) {
         },
         body: text
     };
-    await fetch('https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=ru&api-version=3.0&profanityAction=NoAction&textType=plain', options)
+    await fetch(`https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=${lang}&api-version=3.0&profanityAction=NoAction&textType=plain`, options)
         .then(response => response.json())
-        .then(response => { console.log(response); setOut(response[0].translations[0].text)})
+        .then(response => { setOut(response[0].translations[0].text)})
         .catch(err => console.error(err));
 }
