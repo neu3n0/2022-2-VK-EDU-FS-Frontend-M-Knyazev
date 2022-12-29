@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60px;
+    padding: 10px 10px;
+    background-color: white;
+}
+
+.button_back{
+    background-color: none;
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    color: rgb(95, 95, 95);
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.button_back:hover {
+    background-color: rgba(189, 189, 189, 0.933);
+}
+
+.button_back:active {
+    background-color: rgba(177, 175, 175, 0.933);
+}
