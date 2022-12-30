@@ -1,5 +1,7 @@
 export async function translate(value: string, setOut: any, lang: string) {
-    const text: string = '[{"Text":"{' + value + '}"}]';
+    // const text: string = '[{"Text":"{' + value + '}"}]';
+    const text: string = `[{"Text":"{${value}}"}]`;
+    console.log(text);
     const options = {
         method: 'POST',
         headers: {

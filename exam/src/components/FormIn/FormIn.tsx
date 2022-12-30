@@ -5,7 +5,12 @@ export default function FormIn(props: any) {
     return (
         <div className={styles.main}>
             <form className={styles.inputForm} onSubmit={props.handleSubmit}>
-                <input className={styles.heh} value={text} onChange={(e) => props.setInp(e.target.value)} />
+                <textarea className={styles.heh} value={text} placeholder='Enter your text' onChange={(e) => props.setInp(e.target.value)} onKeyPress={e => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        props.handleSubmit(e);
+                    }
+                }} />
             </form>
         </div>
     )

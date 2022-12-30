@@ -9,6 +9,8 @@ export function PageTranslate() {
             <div className={styles.header}> Super Translator </div>
             <TranslateForms />
             <div className={styles.history}>
+                <h1 className={styles.cr}>Created by me</h1>
+                <h1 className={styles.title}>History</h1>
                 <FloatButton />
             </div>
         </div>

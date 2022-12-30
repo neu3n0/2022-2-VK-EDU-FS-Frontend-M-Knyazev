@@ -7,6 +7,7 @@ import FormOut from '../FormOut/FormOut';
 import FormIn from '../FormIn/FormIn';
 
 import { getLangs } from '../../utils/getLangs';
+import SaveIcon from '@mui/icons-material/Save';
 
 export default function TranslateForms() {
     const [inp, setInp] = useState('');
@@ -17,8 +18,6 @@ export default function TranslateForms() {
     useEffect(() => {
         getLangs(setLangs);
     }, [])
-
-
 
     function handleChange(val) {
         setInp(val);
@@ -46,13 +45,19 @@ export default function TranslateForms() {
         <div>
             <div>
                 <p>На какой язык переводится: {lang}</p>
-                <select className={styles.lang} onClick={(e) => {setLang(e.target.value); translate(inp, setOut, e.target.value);}}>
+                <select className={styles.lang} onClick={(e) => { setLang(e.target.value); translate(inp, setOut, e.target.value); }}>
                     {listLangs}
                 </select>
             </div>
             <div className={styles.wrapper}>
                 <FormIn inp={inp} setInp={handleChange} handleSubmit={handleSubmit} />
                 <FormOut output={output} />
+            </div>
+            <div className={styles.hh}>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>save to history: </div>
+                <div className={styles.save}>
+                    <SaveIcon  onClick={handleSubmit}/>
+                </div>
             </div>
         </div>
     )

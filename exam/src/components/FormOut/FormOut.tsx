@@ -5,7 +5,7 @@ export default function FormOut(props: any) {
     return (
         <div className={styles.main}>
             <form className={styles.inputForm} onSubmit={props.handleSubmit}>
-                <textarea className={styles.heh} value={output} onChange={() => {}} />
+                <textarea className={styles.heh} placeholder='Translated text' value={output} onChange={() => {}} />
             </form>
         </div>
     )

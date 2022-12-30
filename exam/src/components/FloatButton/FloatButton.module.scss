@@ -1,7 +1,7 @@
 .fixed_button {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 10px;
+    right: 10px;
     z-index: 999;
 }
 
@@ -9,16 +9,14 @@
     background-color: none;
     background: none;
     border: none;
-    width: 60px;
-    height: 60px;
     border-radius: 100%;
     color: rgb(95, 95, 95);
     text-align: center;
     transition: background-color 0.2s;
     margin-left: 8px;
-    background-color: rgb(245, 234, 222);
-    width: 40px;
-    height: 40px;
+    background-color: rgb(177, 177, 177);
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     box-shadow: 0 0 0 rgba(73, 126, 224, 0.4);;
     animation: pulse 2s infinite;
