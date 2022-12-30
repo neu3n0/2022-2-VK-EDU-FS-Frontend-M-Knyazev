@@ -19,9 +19,12 @@ export default function TranslateForms() {
         getLangs(setLangs);
     }, [])
 
+    useEffect(() => {
+        translate(inp, setOut, lang);
+    }, [inp, lang])
+
     function handleChange(val) {
         setInp(val);
-        translate(val, setOut, lang);
     }
 
     function handleSubmit(e) {
@@ -45,7 +48,7 @@ export default function TranslateForms() {
         <div>
             <div>
                 <p>Target language: {lang}</p>
-                <select className={styles.lang} onClick={(e) => { setLang(e.target.value); translate(inp, setOut, e.target.value); }}>
+                <select className={styles.lang} onClick={(e) => { setLang(e.target.value);}}>
                     {listLangs}
                 </select>
             </div>
