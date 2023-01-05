@@ -1,0 +1,2 @@
+export const IAM_token: string = "t1.9euelZrNkp7Mz5qcmZmZicyJzo-Uzu3rnpWajJWMmY3JnJvKm82PnJGaiZbl8_dcNUli-e8nKBtE_N3z9xxkRmL57ycoG0T8.qkRCB8S7jksrgaCg296jSnfFdByPn4KuVvHvA32Zh45EXeCWsUV2ZOTW2iUG5C2dbI4Aq3F4yzUaKr3w5mPtDg"
+export const folderId: string = "b1gqom4jvugbo2o9rhtr"

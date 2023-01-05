@@ -1,0 +1,47 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color:#eeee;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 10px 10px;
+    background-color: white;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.history {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    padding: 10px 10px;
+    background-color: white;
+}
+
+.title {
+    display: flex;
+    flex-grow: 1;
+    justify-content: right;
+    margin-right: 90px;
+    font-size: 25px;
+}
+
+.cr {
+    display: flex;
+    flex-grow: 1;
+    justify-content: left;
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+.historyButton {
+    margin-right: 30px;
+}
