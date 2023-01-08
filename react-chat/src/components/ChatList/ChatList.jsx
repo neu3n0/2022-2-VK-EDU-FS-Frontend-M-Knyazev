@@ -1,13 +1,21 @@
-import React, { useContext } from 'react'
-import { CentrifugeContext } from "../../CentifugeContext"
+import React, { useEffect } from 'react'
 import Dialogue from '../Dialogue/Dialogue';
 import { Link } from 'react-router-dom'
 import styles from './ChatList.module.scss'
 
-export default function ChatList() {
-    const { chats } = useContext(CentrifugeContext);
+import { getChats } from '../../actions/chats';
+import { connect } from "react-redux";
+
+function ChatList(props) {
     
-    let listChats = chats && chats.map((chat) =>
+    useEffect(() => {
+        const intervalId = setInterval(() => props.getChats(), 1000);
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [props]);
+    
+    let listChats = props.chats && props.chats.map((chat) =>
         <Link key={chat['chat']['id']} to={`${chat['chat']['id']}`} style={{ textDecoration: 'none', color: '#333' }}>
             <Dialogue chat={chat} />
         </Link>
@@ -34,3 +42,10 @@ export default function ChatList() {
         </div>
     )
 }
+
+const mapStateToProps = (state) => ({
+    chats: state.chats.chats,
+    loading: state.chats.loading,
+})
+
+export default connect(mapStateToProps, { getChats })(ChatList)
