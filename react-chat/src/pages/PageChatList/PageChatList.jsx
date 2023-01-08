@@ -10,7 +10,6 @@ export function PageChatList() {
             <ChatListHeader />
             <ChatList />
             <FloatButton />
-            {/* <a className={"google-oauth2-link"} href="http://localhost:8000/social-auth/login/google-oauth2/"> Login</a> */}
         </div>
     )
 }

@@ -14,6 +14,7 @@ export default function ChatFooter(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
+        console.log('checker2');
         props.sendMess(val);
         setVal('');
     }

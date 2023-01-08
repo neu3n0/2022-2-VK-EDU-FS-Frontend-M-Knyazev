@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom"
 import './App.css'
 import { CentrifugeContext } from "./CentifugeContext"
-import { Centrifuge } from 'centrifuge'
+// import { Centrifuge } from 'centrifuge'
 
 
-import { PageChat, PageChatList, PageProfile, PageCommonChat, PageLogin } from './pages'
+import { PageChatList, PageProfile, PageCommonChat, PageLogin } from './pages'
+
+import PageTest from "./pages/PageTest/PageTest";
+import PageChat from "./pages/PageChat/PageChat";
 
 
 function App() {
@@ -33,18 +36,18 @@ function App() {
     }
 
     function subscribe() {
-        const sub = centrifugo.newSubscription('chats');
-        sub.subscribe();
-        chats.forEach(element => {
-            const sub = centrifugo.newSubscription('messages' + String(element.chat.id));
-            sub.subscribe();
-        });
+        // const sub = centrifugo.newSubscription('chats');
+        // sub.subscribe();
+        // chats.forEach(element => {
+        //     const sub = centrifugo.newSubscription('messages' + String(element.chat.id));
+        //     sub.subscribe();
+        // });
     }
 
     useEffect(() => {
-        const centrifugo = new Centrifuge('ws://localhost:9000/connection/websocket');
-        centrifugo.connect();
-        setCentrifugo(centrifugo);
+        // const centrifugo = new Centrifuge('ws://localhost:9000/connection/websocket');
+        // centrifugo.connect();
+        setCentrifugo(true);
         getChats();
         getUser();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -56,20 +59,21 @@ function App() {
     }, [load]);
 
 
-    console.log('login: ', login);
+    // console.log('login: ', login);
 
-    console.log('centr: ', centrifugo, '\nchats: ', chats, '\nuser: ', user)
+    // console.log('centr: ', centrifugo, '\nchats: ', chats, '\nuser: ', user)
     if (centrifugo && chats && user) {
         return (
             <div className="App">
                 <HashRouter>
                     <CentrifugeContext.Provider value={{ centrifugo, chats }}>
                         <Routes>
-                            <Route path="/chats" element=<PageChatList /> />
+                            <Route path="chats" element=<PageChatList /> />
                             <Route path="chats/:id" element=<PageChat /> />
                             <Route path="profile" element=<PageProfile user={user} setUser={setUser} /> />
                             <Route path='chats/commonChat' element={<PageCommonChat />} />
                             <Route path='/' exact element={<PageLogin login={login} setLogin={() => setLogin(true)} />} />
+                            <Route path='test' element={<PageTest />} />
                         </Routes>
                     </CentrifugeContext.Provider>
                 </HashRouter>
