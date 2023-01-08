@@ -6,7 +6,7 @@ const initialState = {
     error: '',
 }
 
-export default (state = initialState, action) => {
+let chats = (state = initialState, action) => {
     switch (action.type) {
         case GET_CHATS_REQUEST:
             return {
@@ -29,3 +29,5 @@ export default (state = initialState, action) => {
             return state
     }
 }
+
+export default chats;

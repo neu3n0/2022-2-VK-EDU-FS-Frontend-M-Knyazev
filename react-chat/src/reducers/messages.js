@@ -3,11 +3,10 @@ import { GET_MESSAGES_FAILURE, GET_MESSAGES_REQUEST, GET_MESSAGES_SUCCESS } from
 const initialState = {
     loading: false,
     messages: [],
-    check: false,
     error: '',
 }
 
-export default (state = initialState, action) => {
+const messages = (state = initialState, action) => {
     switch (action.type) {
         case GET_MESSAGES_REQUEST:
             return {
@@ -30,3 +29,5 @@ export default (state = initialState, action) => {
             return state
     }
 }
+
+export default messages;
