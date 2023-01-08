@@ -68,6 +68,15 @@
     color: rgb(73, 126, 224);
 }
 
+.button-micro:hover {
+    background-color: rgba(212, 212, 212, 0.933);
+}
+
+.button-micro:active {
+    color: rgb(73, 126, 224);
+    background-color: rgba(124, 226, 233, 0.933);
+}
+
 .button-edit:hover {
     animation: none;
     background-color: rgba(189, 189, 189, 0.933);
